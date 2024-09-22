@@ -1,0 +1,36 @@
+package uo.mp.newsstand;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.newsstand.service.Newsstand;
+import uo.mp.newsstand.service.exception.InvalidFileNameException;
+import uo.mp.util.file.FileUtil;
+import uo.mp.util.log.Logger;
+
+public class LoadFileTest {
+
+	private FileUtil util;
+	private Newsstand stand;
+	
+	@Before
+	public void setUp() {
+		util = new FileUtil();
+		stand = new Newsstand();
+	}
+	
+	/**
+	 * Pruebas del método loadFile de la clase newsStand:
+	 * 1- El fichero no exise
+	 * 2-  
+	 */
+	
+	@Test
+	public void fileDoesNotExist() {
+		try {
+			stand.loadFile("fileDoesNotExist.txt");
+		} catch (InvalidFileNameException e) {
+			Logger.log(e.getMessage());
+		}
+	}
+}

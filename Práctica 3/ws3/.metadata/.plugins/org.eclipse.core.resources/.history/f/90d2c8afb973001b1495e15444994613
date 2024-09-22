@@ -1,0 +1,96 @@
+package uo.mp.s3.dome.model;
+
+import java.io.PrintStream;
+
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase Cd
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+
+public class Cd extends Item  {
+//Atributos:
+	/**
+	 * Atributo artist, artista del CD
+	 */
+	
+	private String artist;
+	
+	/**
+	 * Atributo numberOfTracks, numero de pistas del CD
+	 */
+	private int numberOfTracks;
+	
+	/**
+	 * Constructor con parámetros de la clase Cd
+	 * 
+	 * @param theTitle, titulo del CD, de tipo String
+	 * @param theArtist, artista del CD, de tipo String
+	 * @param tracks, numero de pistas del CD, de tipo int
+	 * @param time, tiempo de duración del CD, de tipo int
+	 */
+	public Cd(String theTitle, String theArtist, int tracks, int time) {
+		super(theTitle, time);
+		ArgumentsCheck.isTrue(theArtist!=null && !theArtist.trim().isEmpty(),
+				"El artista no cumple los requisitos");
+		ArgumentsCheck.isTrue(tracks>0,"El numero de pistas no cumple los requisitos");		
+		setArtist(theArtist);
+		setNumberOfTracks(tracks);
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo artist
+	 * 
+	 * @param artist, artista del Cd, de tipo String
+	 */
+	private void setArtist(String artist) {
+		this.artist = artist;
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo numberOfTracks
+	 * 
+	 * @param numberOfTracks, numero de pistas del Cd, de tipo int
+	 */
+	private void setNumberOfTracks(int numberOfTracks) {
+		this.numberOfTracks = numberOfTracks;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo artist
+	 * 
+	 * @return artist, artista del Cd
+	 */
+	public String getArtist() {
+		return this.artist;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo numberOfTracks
+	 * 
+	 * @return numberOfTracks, numero de pistas del Cd
+	 */
+	public int getNumberOfTracks() {
+		return this.numberOfTracks;
+	}
+	
+	/**
+	 * Método que imprime por pantalla los datos correspondientes del Cd, por ejemplo:
+	 * Titulo, duración, artista, numero de pistas, etc...
+	 */
+	public void print(PrintStream out) {
+		ArgumentsCheck.isTrue(out!=null, "La impresión no debe ser null");
+		out.println("CD: " + getTitle() + " (" + getPlayingTime() + " mins)");
+		out.println("Artist: " + getArtist());
+		out.println("Tracks: " + getNumberOfTracks());
+		if (getOwn()) {
+			out.println("You own it");
+		} else {
+			out.println("You do not own it");
+		}
+		out.println("Comment: " + getComment());
+	}
+}

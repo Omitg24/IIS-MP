@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="uo.mp.lab11.person.Person"/>
+    <fullyQualifiedTypeName name="uo.mp.lab11.person.PersonBySurnameNameComparator"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Publication"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Order"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.comparators.QuantityAndNamesComparator"/>
+    <fullyQualifiedTypeName name="uo.mp2021.file.ZipFileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.lab12.marker.StudentExam"/>
+    <fullyQualifiedTypeName name="uo.mp.lab12.marker.Question"/>
+    <fullyQualifiedTypeName name="uo.mp.lab12.marker.StudentMark"/>
+    <fullyQualifiedTypeName name="uo.mp2021.file.FileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.Question"/>
+    <fullyQualifiedTypeName name="luo.mp.lab11.sorting.Collections"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.comparators.StudentComparator"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.StudentMark"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.comparators.MarkComparator"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.exception.InvalidLineFormatException"/>
+    <fullyQualifiedTypeName name="uo.mp2021.util.checks.ArgumentChecks"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.exception.InvalidFileNameException"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.StudentExam"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Question"/>
+    <fullyQualifiedTypeName name="java.awt.Choice"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Choice"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Value"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Gap"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.ExamMarker"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="uo.mp2021.log.Logger"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="uo.mp.log.Logger"/>
+</qualifiedTypeNameHistroy>

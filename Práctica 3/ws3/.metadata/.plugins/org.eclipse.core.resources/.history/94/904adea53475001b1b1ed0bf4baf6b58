@@ -1,0 +1,11 @@
+package uo.mp.s3.post.model.photo;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+@RunWith(Suite.class)
+@SuiteClasses({ PhotoTest.class })
+public class AllTests {
+
+}

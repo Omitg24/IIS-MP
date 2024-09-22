@@ -1,0 +1,20 @@
+package uo.mp.publicationparser;
+
+/**
+ * Titulo: Clase ParseTest
+ * 
+ * @author Omitg
+ * @version 07-04-2021
+ */
+public class ParseTest {
+	/**
+	 * Pruebas del método parse de la clase PublicationParse:
+	 * 1- Recibe lista vacía
+	 * 2- Cadena para magazine y es correcta
+	 * 3- Cadena para newspaper y es correcta
+	 * 4- Cadenas con ambos y es correcta
+	 * 5- Cadena con linea correcta y otra incorrecta
+	 */
+	
+	
+}

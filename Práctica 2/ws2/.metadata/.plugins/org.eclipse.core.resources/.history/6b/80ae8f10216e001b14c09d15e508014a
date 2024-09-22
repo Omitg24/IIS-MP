@@ -1,0 +1,67 @@
+/**
+ * 
+ */
+package uo.mp.s2.analyzer.wordanalyzer;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import uo.mp.s2.analyzer.model.WordAnalyzer;
+
+/**
+ * @author Omitg
+ *
+ */
+public class WordAnalyzerTest {
+	
+	/**
+	 * Pruebas del constructor WordAnalyzer de la clase WordAnalyzer:
+	 * Negativas (pruebas de robustez):
+	 * 1- Null en lugar de palabra
+	 * 2- Palabra vacia
+	 * 
+	 * Positivas:
+	 * 3- Palabra cualquiera
+	 * 4- Palabra de un solo caracter 
+	 */
+	
+//Negativas (pruebas de robustez):
+	
+	/**
+	 * 1- Null en lugar de palabra
+	 * GIVEN Se crea un analizador con null como parametro
+	 * WHEN 
+	 * THEN lanzar IllegalArgumentException 
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testNullArgument()  {
+		new WordAnalyzer(null);
+	}
+	
+	/**
+	 * 2- Palabra vacia
+	 * GIVEN Se crea un analizador con la palabra vacía como parametro
+	 * WHEN 
+	 * THEN lanzar IllegalArgumentException 
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testEmptyArgument()  {
+		new WordAnalyzer("");
+	}
+	
+//Positivas:
+	/**
+	 * 3- Palabra cualquiera
+	 * GIVEN Se crea un analizador con una palabra cualquiera
+	 * WHEN Se llama al método getWord
+	 * THEN Se comprueba que la palabra y lo obtenido de getWord es igual 
+	 */
+	@Test
+	public void testRandomWord() {
+		WordAnalyzer word = new WordAnalyzer("pollo");
+		assertEquals(word, word.getWord());
+	}
+}

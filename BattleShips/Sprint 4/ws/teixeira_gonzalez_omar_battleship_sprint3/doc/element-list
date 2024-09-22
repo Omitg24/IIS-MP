@@ -1,0 +1,9 @@
+uo.mp.battleship.board
+uo.mp.battleship.board.squares
+uo.mp.battleship.game
+uo.mp.battleship.interaction
+uo.mp.battleship.model.board
+uo.mp.battleship.model.coordinate
+uo.mp.battleship.model.square
+uo.mp.battleship.model.turnselector
+uo.mp.battleship.player

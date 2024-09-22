@@ -1,0 +1,13 @@
+package uo.mp.transaction.validator.parser;
+
+import uo.mp.collections.List;
+import uo.mp.transaction.model.Transaction;
+
+public class TransactionParser {
+
+	public List<Transaction> parse(List<String> lines) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

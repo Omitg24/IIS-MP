@@ -1,0 +1,73 @@
+package uo.mp.s3.post.model.message;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.s3.post.model.Message;
+
+/**
+ * @author Omitg
+ *
+ */
+public class MessageTest {
+	
+	/**
+	 * Usuario que escribió el mensaje
+	 */
+	private String user;
+	
+	/**
+	 * Mensaje que publicó el usuario
+	 */
+	private String msg;
+	
+	/**
+	 * Creación de atributos para su uso posterior
+	 */
+	@Before
+	public void setUp() {
+		user = "Omitg";
+		msg = "I'm Batman";
+	}
+	
+	/**
+	 * Pruebas del constructor con parámetros de la clase Message:
+	 * Pruebas de funcionalidad:
+	 * 1- Parámetros validos -> Se crea el objeto
+	 * 
+	 * Pruebas de robustez:
+	 * 2- Titulo invalido -> Lanza la excepción
+	 * 3- Mensaje invalido -> Lanza la excepción
+	 */
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testConstructorValidParams() {
+		Message message = new Message (user, msg);
+		assertEquals(user,message.getUser());
+		assertEquals(msg, message.getMessage());
+	}
+	
+	
+	/**
+	 * 
+	 */
+	@Test
+	(expected = IllegalArgumentException.class)
+	public void testConstructorInvalidTittle() {
+		new Message (null,msg);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	(expected = IllegalArgumentException.class)
+	public void testConstructorInvalidMessage() {
+		new Message (user,null);
+	}
+}

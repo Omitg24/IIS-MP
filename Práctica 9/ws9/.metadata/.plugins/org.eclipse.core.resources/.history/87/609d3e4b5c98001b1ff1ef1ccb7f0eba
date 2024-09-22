@@ -1,0 +1,54 @@
+package uo.mp.newsstand.service.parsers;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import uo.mp.newsstand.domain.Magazine;
+import uo.mp.newsstand.domain.Newspaper;
+import uo.mp.newsstand.domain.Publication;
+
+public class PublicationParser {
+
+	public List<Publication> parse(List<String> lines) {
+		List<Publication> publications = new LinkedList<Publication>();
+		for (String line : lines) {
+			Publication publication = parseLine(line);
+			publications.add(publication);
+		}
+		return publications;
+	}
+
+	private Publication parseLine(String line) {
+		String [] parts = line.split("\t");
+		String type = parts[0];
+		
+		if (type.equals("newspaper")) {
+			return parseNewsPaper(parts);
+		} else if (type.equals("magazine")) {
+			return parseMagazine(parts);
+		} else {
+			return null;
+		}		
+	}
+	
+	private Publication parseMagazine(String[] parts) {
+		String name = parts[1];
+		int stock = toInteger(parts[2]);
+		int sales = toInteger(parts[3]);
+		int frequence = toInteger(parts[4]);
+		
+		return new Magazine(name, stock, sales, frequence);
+	}
+
+	private Publication parseNewsPaper(String[] parts) {
+		String name = parts[1];
+		int stock = toInteger(parts[2]);
+		int sales = toInteger(parts[3]);
+		
+		return new Newspaper(name, stock, sales);
+	}
+
+	private int toInteger(String string) {
+		return Integer.parseInt(string);
+	}
+}

@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package uo.mp.s3.dome.ui;
+
+import uo.mp.s3.dome.model.Cd;
+import uo.mp.s3.dome.model.Dvd;
+import uo.mp.s3.dome.service.MediaLibrary;
+
+/**
+ * @author Omitg
+ *
+ */
+public class Application {
+	
+	/**
+	 * 
+	 */
+	public static void run() {
+		MediaLibrary lib = new MediaLibrary();
+		Cd cd1 = new Cd("Prueba", "Pepe", 12, 60);
+		Dvd dvd1 = new Dvd ("Pocahontas", "Disney", 120);
+		
+		lib.add(cd1);
+		lib.add(dvd1);
+		
+		lib.list(System.out);
+	}
+	
+}

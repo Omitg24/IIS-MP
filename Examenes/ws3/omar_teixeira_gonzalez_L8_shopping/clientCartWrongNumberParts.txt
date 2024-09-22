@@ -1,0 +1,3 @@
+Food:F01:Carne Ternera:20.0
+Food:Carne Pollo:5.0:1.0
+Cleaning:C01:Suavizante:5.0:1

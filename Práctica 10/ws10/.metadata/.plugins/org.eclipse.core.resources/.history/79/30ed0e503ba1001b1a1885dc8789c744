@@ -1,0 +1,9 @@
+package uo.mp.newsstand;
+
+public class ImportPublicationsFromZipFile {
+
+	public ImportPublicationsFromZipFile() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

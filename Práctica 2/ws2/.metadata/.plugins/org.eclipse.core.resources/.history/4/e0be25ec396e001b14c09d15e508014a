@@ -1,0 +1,5 @@
+package uo.mp.s2.analyzer.wordanalyzer;
+
+public class countGroupsOfRepeatedCharacters {
+
+}

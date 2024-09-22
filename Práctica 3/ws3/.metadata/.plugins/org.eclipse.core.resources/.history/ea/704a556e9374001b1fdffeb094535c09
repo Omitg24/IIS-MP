@@ -1,0 +1,24 @@
+package uo.mp.s3.post.service;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.s3.post.model.Photo;
+import uo.mp.s3.dome.model.Item;
+import uo.mp.s3.post.model.Message;
+import uo.mp.s3.post.model.Post;
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase TheSocialNetwork
+ * 
+ * @author Omitg
+ * @version 20-02-2021
+ */
+public class TheSocialNetwork {
+//Atributos:
+	/**
+	 * Lista de items
+	 */
+	private ArrayList<Post> posts = new ArrayList<Post>();
+}

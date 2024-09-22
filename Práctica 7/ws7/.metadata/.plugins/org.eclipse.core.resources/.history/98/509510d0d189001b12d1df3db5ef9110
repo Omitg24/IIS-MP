@@ -1,0 +1,92 @@
+package uo.mp.collections.impl;
+
+import uo.mp.collections.List;
+
+public class LinkedList implements List {
+
+	private Node head;
+	private int numberOfElements;
+	
+	@Override
+	public int size() {
+		return numberOfElements;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return size()==0;
+	}
+
+	@Override
+	public boolean contains(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void add(Object element) {
+		if (isEmpty()) {
+			addFirst(element);
+		} else {
+			Node last = getNode(size()-1);
+			last.next = new Node(element, null);
+			numberOfElements++;
+		}
+	}
+	
+	public void addFirst(Object value) {
+		head = new Node(value, head);
+		numberOfElements++;
+	}
+
+	@Override
+	public boolean remove(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Object get(int index) {
+		return getNode(index).value;
+	}
+
+	private Node getNode(int index) {
+		int position = 0;
+		Node node = head;
+		while (position < index) {
+			node = node.next;
+			position++;
+		}
+		return node;
+	}
+
+	@Override
+	public void set(int index, Object value) {
+		getNode(index).value=value;
+	}
+
+	@Override
+	public void add(int index, Object element) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Object remove(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int indexOf(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

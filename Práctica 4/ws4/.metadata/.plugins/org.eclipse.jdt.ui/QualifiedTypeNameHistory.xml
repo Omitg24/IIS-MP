@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.s4.dome.model.VideoGame.Platform"/>
+    <fullyQualifiedTypeName name="uo.mp.s4.dome.model.Item"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="uo.mp.s4.dome.model.VideoGame"/>
+    <fullyQualifiedTypeName name="uo.mp.s4.dome.model.Dvd"/>
+    <fullyQualifiedTypeName name="uo.mp.s4.dome.model.Cd"/>
+</qualifiedTypeNameHistroy>

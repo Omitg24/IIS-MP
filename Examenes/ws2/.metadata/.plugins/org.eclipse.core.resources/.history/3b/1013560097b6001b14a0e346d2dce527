@@ -1,0 +1,13 @@
+package uo.mp.transaction.validator.serialize;
+
+import uo.mp.collections.List;
+import uo.mp.transaction.model.Transaction;
+
+public class TransactionSerializer {
+
+	public List<String> serialize(List<Transaction> invalidTrx) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

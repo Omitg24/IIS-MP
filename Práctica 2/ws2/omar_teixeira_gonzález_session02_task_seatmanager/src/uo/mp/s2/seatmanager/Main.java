@@ -1,0 +1,24 @@
+package uo.mp.s2.seatmanager;
+
+import uo.mp.s2.seatmanager.ui.Application;
+
+/**
+ * <p>
+ * Titulo: Clase Main
+ * </p>
+ * Descripción: Clase que ejecuta el programa
+ * 
+ * @author Omitg
+ * @version 13/02/2021
+ */
+public class Main {
+
+	/**
+	 * Método que ejecuta el programa
+	 * 
+	 * @param args, argumento a analizar
+	 */
+	public static void main(String[] args) {
+		new Application().run();
+	}
+}

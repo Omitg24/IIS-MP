@@ -1,0 +1,10 @@
+uo.mp.s5.dome
+uo.mp.s5.dome.model
+uo.mp.s5.dome.model.book
+uo.mp.s5.dome.model.cd
+uo.mp.s5.dome.model.dvd
+uo.mp.s5.dome.model.item
+uo.mp.s5.dome.model.videogame
+uo.mp.s5.dome.service
+uo.mp.s5.dome.service.medialibrary
+uo.mp.s5.dome.ui

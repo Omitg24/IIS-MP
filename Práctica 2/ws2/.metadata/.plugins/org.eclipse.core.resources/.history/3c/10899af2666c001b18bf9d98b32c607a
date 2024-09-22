@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package ArgumentsCheck;
+
+/**
+ * @author Omitg
+ *
+ */
+public class WordAnalyzerTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

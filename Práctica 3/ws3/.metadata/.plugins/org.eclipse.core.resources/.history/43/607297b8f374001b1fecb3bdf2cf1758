@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package uo.mp.s3.post.model.message;
+
+/**
+ * @author Omitg
+ *
+ */
+public class MessageTest {
+	
+	/**
+	 * Pruebas del constructor con parámetros de la clase Message:
+	 * 1- Parámetros validos
+	 */
+}

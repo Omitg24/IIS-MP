@@ -1,0 +1,8 @@
+uo.mp.battleship
+uo.mp.battleship.board
+uo.mp.battleship.game
+uo.mp.battleship.interaction
+uo.mp.battleship.model.boardbuilder
+uo.mp.battleship.model.coordinate
+uo.mp.battleship.player
+uo.mp.util

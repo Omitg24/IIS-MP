@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.util.log.Logger"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.service.parsers.PublicationParser"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.service.parsers.InvalidLineFormatException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Publication"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Magazine"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.service.Newsstand"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Order"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="uo.mp.newsstand.domain.Newspaper"/>
+</qualifiedTypeNameHistroy>

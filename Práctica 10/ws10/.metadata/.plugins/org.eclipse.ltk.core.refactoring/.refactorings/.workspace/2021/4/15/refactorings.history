@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;omar_teixeira_gonzalez_session09_task_newsstand&apos; to &apos;omar_teixeira_gonzalez_session10_task_newsstand&apos;&#x0D;&#x0A;- Original element: &apos;omar_teixeira_gonzalez_session09_task_newsstand&apos;&#x0D;&#x0A;- Renamed element: &apos;omar_teixeira_gonzalez_session09_task_newsstand&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;omar_teixeira_gonzalez_session09_task_newsstand&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=omar_teixeira_gonzalez_session09_task_newsstand" name="omar_teixeira_gonzalez_session10_task_newsstand" references="true" stamp="1618484536945" version="1.0"/>
+</session>

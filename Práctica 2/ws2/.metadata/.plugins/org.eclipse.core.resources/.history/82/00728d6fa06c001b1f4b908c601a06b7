@@ -1,0 +1,55 @@
+/**
+ * 
+ */
+package uo.mp.s2.analyzer.wordanalyzer;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Test;
+
+import uo.mp.s2.bugs.model.WordAnalyzer;
+
+/**
+ * @author Omitg
+ *
+ */
+public class WordAnalyzerTest {
+	
+	/**
+	 * Pruebas de robustez del constructor WordAnalyzer de la clase WordAnalyzer:
+	 * 1- Null en lugar de palabra
+	 * 2- Palabra vacia
+	 * 
+	 * 3- Palabra cualquiera
+	 * 4- Palabra de un solo caracter 
+	 */
+
+	/**
+	 * 1- Null en lugar de palabra
+	 * GIVEN
+	 * WHEN se crea un analizador con null como parametro
+	 * THEN lanzar IllegalArgumentException 
+	 */
+	@Test
+	public void testNullArgument() {
+		try {
+			new WordAnalyzer(null);
+			fail("Esperaba excepción");
+		} catch (IllegalArgumentException e) {
+			assertEquals("Esperaba palabra y fue null",e.getMessage());
+		}
+	}
+	
+	/**
+	 * 1- Null en lugar de palabra
+	 * GIVEN
+	 * WHEN se crea un analizador con null como parametro
+	 * THEN lanzar IllegalArgumentException 
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testNullArgument2()  {
+		new WordAnalyzer(null);
+	}
+}

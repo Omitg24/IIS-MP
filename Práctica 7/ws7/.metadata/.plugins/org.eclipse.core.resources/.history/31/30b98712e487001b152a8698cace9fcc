@@ -1,0 +1,66 @@
+package uo.mp.collections.testcases;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.collections.List;
+import uo.mp.collections.setting.Settings;
+
+public class IndexOfTests {
+	
+	private List list;
+
+	@Before
+	public void setUp() throws Exception {
+		list = Settings.factory.newList();
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+		
+	@Test
+	public void testIndexNotExist() {
+		Object obj = new Object();
+		assertEquals(-1,list.indexOf(obj));
+	}
+	
+	@Test
+	public void testIndexNullElements() {
+		assertEquals(-1,list.indexOf(null));
+	}
+	
+	@Test
+	public void testIndexCorrect() {
+		Object obj1 = new Object();
+		Object obj2 = new Object();
+		Object obj3 = new Object();
+		Object obj4 = new Object();
+		list.add(obj1);
+		list.add(obj2);
+		list.add(obj3);
+		list.add(obj4);
+		assertEquals(0,list.indexOf(obj1));
+		assertEquals(1,list.indexOf(obj2));
+		assertEquals(2,list.indexOf(obj3));
+		assertEquals(3,list.indexOf(obj4));
+	}
+	
+	@Test
+	public void testIndexRepeatedElements() {
+		Object obj1 = new Object();
+		Object obj2 = new Object();
+		Object obj3 = new Object();
+		Object obj4 = new Object();
+		list.add(obj1);
+		list.add(obj2);
+		list.add(obj3);
+		list.add(obj4);
+		list.add(obj1);
+		assertEquals(0,list.indexOf(obj1));		
+	}
+}

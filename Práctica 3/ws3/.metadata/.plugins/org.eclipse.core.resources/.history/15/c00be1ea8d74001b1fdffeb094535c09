@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package uo.mp.s3.post.model;
+
+/**
+ * @author Omitg
+ *
+ */
+public class Photo {
+
+}

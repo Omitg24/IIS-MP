@@ -1,0 +1,89 @@
+package uo.mp.s3.dome.model;
+
+import java.io.PrintStream;
+
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase Item
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+
+public class Item {
+	/**
+	 * Atribto title, titulo del Cd o Dvd
+	 */
+	private String title;
+	/**
+	 * Atributo playingTime, duración del Cd o Dvd
+	 */
+	private int playingTime;
+	/**
+	 * Atributo gotIt
+	 */
+	private boolean gotIt;
+	/**
+	 * Atributo comment
+	 */
+	private String comment;
+
+	public Item() {
+		super();
+	}
+	
+	public Item(String theTitle, int time) {
+		super();
+		ArgumentsCheck.isTrue(theTitle!=null);
+		ArgumentsCheck.isTrue(!theTitle.trim().isEmpty());
+		
+		setTitle(theTitle);
+		setPlayingTime(time);
+		setOwn(false);
+		setComment("No comment");
+	}
+
+	protected void setTitle(String title) {
+		if (title != null) {
+			this.title = title;
+		}
+	}
+
+	protected void setPlayingTime(int playingTime) {
+		if (playingTime > 0) {
+			this.playingTime = playingTime;
+		}
+	}
+
+	public void setOwn(boolean ownIt) {
+		gotIt = ownIt;
+	}
+
+	public void setComment(String comment) {
+		if (comment != null) {
+			this.comment = comment;
+		}
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public boolean getOwn() {
+		return gotIt;
+	}
+
+	public String getTitle() {
+		return this.title;
+	}
+
+	public int getPlayingTime() {
+		return this.playingTime;
+	}
+
+	public void print(PrintStream out) {
+		// TODO Auto-generated method stub		
+	}
+
+}

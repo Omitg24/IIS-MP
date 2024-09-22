@@ -1,0 +1,159 @@
+package uo.mp.collections.testcases;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.collections.List;
+import uo.mp.collections.setting.Settings;
+
+/**
+ * Titulo: Clase AddInPositionTests
+ * 
+ * @author Omitg
+ * @version 18-03-2021
+ */
+public class AddInPositionTests {
+	
+	/**
+	 * Lista
+	 */
+	private List list;
+	
+	/**
+	 * Creación de la lista para su posterior uso
+	 * 
+	 * @throws Exception, excepción a lanzar
+	 */
+	@Before
+	public void setUp() throws Exception {
+		list = Settings.factory.newList();
+	}
+
+	/**
+	 * Caso1: Add en la posición 0 de una lista vacía añade el elemento			
+	 * CAso2: Add en la posición 0 de una lista con varios elementos añade el elemento y mueve el resto una posición a la derecha
+	 * Caso3: Add en una posición intermedia de una lista añade el elemento y mueve el resto una posición a la derecha
+	 * Caso4: Add en la última posición de una lista con elementos añade el elemento
+	 * Caso5: Add en la posición después del último de una lista con elementos añade el elemento	
+	 * Caso6: Intentar añadir  en una posición negativa, se lanza IndexOutOfBoundsException	
+	 * Caso7: Intentar añadir en una posicón > size(), se lanza IndexOutOfBoundsException	
+	 * Caso8: intentar añadir un null, se lanza IllegalArgumentException	
+	 */
+	
+	/**
+	 * Given: an empty list
+	 * When: se añade un numero
+	 * Then: se comprueba que la pos 0 sea el numero
+	 */
+	@Test
+	public void test1() {
+		
+		list.add(0, 7);
+		
+		assertTrue(list.contains(7));
+		assertEquals(1, list.size());
+	}
+	
+	/**
+	 * Given: una lista con varios elementos
+	 * When: se añade un numero en medio
+	 * Then: se comprueba que la pos 0 sea el numero
+	 */
+	@Test
+	public void test2() {
+		list.add(0, 7);
+		list.add(1, 6);
+		list.add(2, 7);
+		
+		list.add(0, 2);
+		
+		assertEquals(2, list.get(0));
+		assertEquals(3, list.size());
+	}
+	 
+	/**
+	 * Given: una lista con varios elementos
+	 * When: se añade un numero en medio
+	 * Then: se comprueba que la pos 1 sea el numero
+	 */
+	@Test
+	public void test3() {
+		list.add(0, 7);
+		list.add(1, 6);
+		list.add(2, 7);
+		
+		list.add(1, 2);
+		
+		assertEquals(2, list.get(1));
+		assertEquals(4, list.size());
+	}
+	
+	/**
+	 * Given: una lista con varios elementos
+	 * When: se añade un numero en medio
+	 * Then: se comprueba que es el elemento
+	 */
+	@Test
+	public void test4() {
+		list.add(0, 7);
+		list.add(1, 6);
+		list.add(2, 7);
+		
+		list.add(2, 2);
+		
+		assertEquals(2, list.get(2));
+		assertEquals(4, list.size());
+	}
+	
+	/**
+	 * Given: una lista con varios elementos
+	 * When: se añade un numero en medio
+	 * Then: se comprueba que es el elemento
+	 */
+	@Test
+	public void test5() {
+		list.add(0, 7);
+		list.add(1, 6);
+		list.add(2, 7);
+		
+		list.add(3, 2);
+		
+		assertEquals(2, list.get(3));
+		assertEquals(4, list.size());
+	}
+	
+	/**
+	 * Given: an empty list
+	 * When: se añade un numero
+	 * Then: lanza excepcion
+	 */
+	@Test
+	(expected = IndexOutOfBoundsException.class)
+	public void test6() {
+		list.add(-9, 7);
+	}
+	
+	/**
+	 * Given: an empty list
+	 * When: se añade un numero
+	 * Then: lanza excepcion
+	 */
+	@Test
+	(expected = IndexOutOfBoundsException.class)
+	public void test7() {
+		list.add(list.size() + 5, 7);
+	}
+	
+	/**
+	 * Given: an empty list
+	 * When: se añade un numero
+	 * Then: lanza excepcion
+	 */
+	@Test
+	(expected = IllegalArgumentException.class)
+	public void test8() {
+		list.add(0, null);
+	}
+}

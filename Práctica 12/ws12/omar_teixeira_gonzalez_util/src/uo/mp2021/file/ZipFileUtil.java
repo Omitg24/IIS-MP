@@ -1,0 +1,78 @@
+package uo.mp2021.file;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
+
+/**
+ * Titulo: Clase ZipFileUtil
+ * 
+ * A utility class to read/write text lines from/to a compressed text file
+ * (.txt.gz)
+ * 
+ * @author Omitg
+ * @version 07-04-2021
+ */
+public class ZipFileUtil {
+
+	/**
+	 * Método que lee lineas del zip
+	 * 
+	 * @param inFileName, nombre del zip
+	 * @return lista de strings con el contenido del zip
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 */
+	public List<String> readLines(String inFileName) throws FileNotFoundException, IOException {
+		List<String> res = new LinkedList<>();
+		BufferedReader in = new BufferedReader(
+				new InputStreamReader(new GZIPInputStream(new FileInputStream(inFileName))));
+		try {
+			try {
+				while (in.ready()) {
+					String line = in.readLine();
+					res.add(line);
+				}
+			} finally {
+				in.close();
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("Error en lectura de datos");
+		}
+
+		return res;
+	}
+
+	/**
+	 * Método que escribe lineas en el zip
+	 * 
+	 * @param outZippedFileName, nombre del zip
+	 * @param lines,             lista de lineas
+	 */
+	public void writeLines(String outZippedFileName, List<String> lines) {
+		try {
+			BufferedWriter out = new BufferedWriter(
+					new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(outZippedFileName))));
+			try {
+				for (String line : lines) {
+					out.write(line);
+					out.newLine();
+				}
+			} finally {
+				out.close();
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("Error en escritura de datos");
+		}
+	}
+
+}

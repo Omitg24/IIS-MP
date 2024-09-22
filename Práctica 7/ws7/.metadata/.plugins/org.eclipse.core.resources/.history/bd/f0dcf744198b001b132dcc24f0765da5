@@ -1,0 +1,257 @@
+package uo.mp.collections.impl;
+
+import java.util.Arrays;
+
+import uo.mp.check.ArgumentChecks;
+import uo.mp.collections.List;
+
+/**
+ * Titulo: Clase LinkedList
+ * 
+ * @author Omitg
+ * @version 18-03-2021
+ */
+public class LinkedList implements List {
+	/**
+	 * Cabeza del nodo
+	 */
+	private Node head;
+	/**
+	 * Numero de elementos
+	 */
+	private int numberOfElements;
+	
+	/**
+	 * Método que devuelve el tamaño del arrayList
+	 * 
+	 * @return numberOfElements, numero de elementos
+	 */
+	@Override
+	public int size() {
+		return numberOfElements;
+	}
+
+	/**
+	 * Método que devuelve si el ArrayList está vacío
+	 * 
+	 * @return true o false, en función de si está vacío
+	 */
+	@Override
+	public boolean isEmpty() {
+		return size()==0;
+	}
+
+	/**
+	 * Método que devuelve si el ArrayList contiene a un objeto como parámetro
+	 * 
+	 * @param o, objeto
+	 * @return true o false, en función de si esta
+	 */
+	@Override
+	public boolean contains(Object o) {
+		return indexOf(o)!=-1;
+	}
+	
+	/**
+	 * Método que añade un objeto en la última posición
+	 * 
+	 * @param obj, objeto
+	 */
+	@Override
+	public void add(Object element) {
+		ArgumentChecks.isTrue(element!=null);
+		if (isEmpty()) {
+			addFirst(element);
+		} else {
+			Node last = getNode(size()-1);
+			last.next = new Node(element, null);
+			numberOfElements++;
+		}
+	}
+	
+	/**
+	 * Método que añade un objeto en una posición concreta
+	 * 
+	 * @param index, indice
+	 * @param element, objeto
+	 */
+	@Override
+	public void add(int index, Object element) {
+		ArgumentChecks.bounds(index>=0 && index<=size());		
+		ArgumentChecks.isTrue(element!=null);
+		if (index==0) {
+			addFirst(element);
+		} else {
+			Node previous = getNode(index-1);
+			previous.next = new Node(element, previous.next);
+			numberOfElements++;
+		}
+	}
+	
+	/**
+	 * Método que añade un elemento en la posicion inicial
+	 * 
+	 * @param element, elemento a añadir
+	 */
+	public void addFirst(Object element) {
+		head = new Node(element, head);
+		numberOfElements++;
+	}
+	
+	/**
+	 * Método que elimina un objeto de la lista, devuelve true si lo ha eliminado
+	 * 
+	 * @return true o false, si lo elimina
+	 */
+	@Override
+	public boolean remove(Object o) {
+		ArgumentChecks.isTrue(o!=null);
+		if (isEmpty()) {
+			return false;
+		}
+		int searched = indexOf(o);
+		if (searched!=-1) {
+			remove(searched);
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Método que elimina todos los objetos de la lista
+	 */
+	@Override
+	public void clear() {		
+		head=null;
+		numberOfElements=0;
+	}
+	
+	/**
+	 * Método que devuelve un objeto de la lista pasada como parámetro
+	 * 
+	 * @param index, posición del objeto a devolver
+	 * @return object, objeto en la posición
+	 */
+	@Override
+	public Object get(int index) {
+		if (isEmpty()) {
+			ArgumentChecks.bounds(index>0 && index<size());
+		}
+		ArgumentChecks.bounds(index>=0 && index<size());
+		return getNode(index).value;
+	}
+	
+	/**
+	 * Método que devuelve el nodo
+	 * 
+	 * @param index, posición del nodo
+	 * @return node, nodo
+	 */
+	private Node getNode(int index) {
+		int position = 0;
+		Node node = head;
+		while (position < index) {
+			node = node.next;
+			position++;
+		}
+		return node;
+	}
+	
+	/**
+	 * Método que setea un objeto en una posición determinada
+	 * 
+	 * @param index, posición del objeto a setear
+	 * @param element
+	 */
+	@Override
+	public Object set(int index, Object value) {
+		if (isEmpty()) {
+			ArgumentChecks.bounds(index>0 && index<size());
+		}
+		ArgumentChecks.bounds(index>=0 && index<size());
+		return getNode(index).value=value;
+	}
+	
+	/**
+	 * Método que elimina un objeto pasado la posición que ocupan
+	 * 
+	 * @param index, posicion del objeto a eliminar
+	 */
+	@Override
+	public Object remove(int index) {
+		if (isEmpty()) {
+			ArgumentChecks.bounds(index>0 && index<size());
+		}
+		ArgumentChecks.bounds(index>=0 && index<size());
+		if (isEmpty()) {
+			return null;
+		}
+		Object value;
+		if (index==0) {
+			value = head.value;
+			head = head.next;
+		} else {
+			Node previous = getNode(index-1);
+			value = previous.next.value;
+			previous.next = previous.next.next;
+		}
+		numberOfElements--;
+		return value;
+	}
+	
+	/**
+	 * Método que devuelve la posición en la que está un objeto
+	 * 
+	 * @return i, posición del objeto o -1 si no esta
+	 */
+	@Override
+	public int indexOf(Object o) {
+		Node aux = head;
+		int i=0;
+		while (aux!=null && !aux.value.equals(o)) {
+			aux= aux.next;
+			i++;
+		}
+		return aux==null?-1:i;
+	}
+	
+	/**
+	 * Método que devuelve la lista en formato cadena de caracteres
+	 * 
+	 * @return cadena de caracteres de la lista
+	 */
+	@Override
+	public String toString() {
+		String aux = "[";
+		for (int i=0; i<size();i++) {
+			if (i!= numberOfElements-1) {
+				aux = aux + get(i) + ", ";
+			} else {
+				aux = aux + get(i);
+			}
+		}
+		aux = aux + "]";
+		return aux;
+	}
+	
+	/**
+	 * Método que devuelve el codigo de la lista
+	 * 
+	 * @return hashCode, codigo de la lista
+	 */
+	@Override
+	public int hashCode() {
+		int hashCode=0;
+		if (isEmpty()) {
+			hashCode=1;
+			return hashCode;
+		} else {
+			Node aux = head;			
+			while (aux!=null) {
+				hashCode = 31 * hashCode + (aux == null ? 0 : aux.hashCode());
+				aux= aux.next;								
+			}				  
+			return hashCode;
+		}
+	}	
+}

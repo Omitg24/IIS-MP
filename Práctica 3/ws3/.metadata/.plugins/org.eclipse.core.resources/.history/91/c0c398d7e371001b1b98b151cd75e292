@@ -1,0 +1,12 @@
+package uo.mp.s3.dome.service;
+
+/**
+ * Titulo: Clase MediaLibrary
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ *
+ */
+public class MediaLibrary {
+
+}

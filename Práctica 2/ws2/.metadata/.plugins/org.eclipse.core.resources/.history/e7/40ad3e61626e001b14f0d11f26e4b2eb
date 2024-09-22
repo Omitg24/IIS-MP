@@ -1,0 +1,30 @@
+package uo.mp.s2.seatmanager.model;
+
+/**
+ * Titulo: Clase Person
+ * 
+ * Descripción: Clase encargada de sentar a las personas
+ *  
+ * @author Omitg
+ * @version 13/02/2021
+ */
+
+public class SeatManager {
+
+//Constantes:
+	/**
+	 * Número máximo de filas
+	 */
+	public static final int MAX_ROWS = 10;
+	
+	/**
+	 * Número máximo de columnas
+	 */
+	public static final int MAX_COLUMNS = 4;
+	
+//Atributos: 
+	/**
+	 * Atributo 
+	 */
+	private Person passenger;
+}

@@ -1,0 +1,79 @@
+package uo.mp.s6.greenhouse;
+
+
+
+import uo.mp.s6.greenhouse.humidity.HumidityController;
+import uo.mp.s6.greenhouse.humidity.HumiditySensor;
+import uo.mp.s6.greenhouse.scanner.Checkable;
+import uo.mp.s6.greenhouse.scanner.Scanner;
+import uo.mp.s6.greenhouse.temperature.Doorable;
+import uo.mp.s6.greenhouse.temperature.TemperatureController;
+import uo.mp.s6.greenhouse.temperature.TemperatureSensor;
+
+/**
+ * <p>Title: GreenHouseController</p>
+ * <p>Description: Clase que simula al invernadero.</p>
+ * <p>Copyright: Copyright (c) 2020</p>
+ * <p>Escuela de Ingeniería Informática</p>
+ * <p>Metodología de la Programación</p>
+ * 
+ * @author Omitg
+ * @version 18-03-2021
+ */
+public class GreenhouseController {
+	/**
+	 * Objeto controlador de temperatura
+	 */
+	private TemperatureController tempCtrl = new TemperatureController();
+	private HumidityController humCrtl = new HumidityController();
+	private Scanner scanner= new Scanner();
+
+	/**
+	 * Método que añade un sensor de temperatura
+	 * 
+	 * @param sensor, sensor de temperatura
+	 */
+	public void add(TemperatureSensor sensor) {
+		tempCtrl.add( sensor );
+		scanner.add(sensor);		
+	}
+
+	/**
+	 * Método que añade una puerta
+	 * 
+	 * @param door, puerta
+	 */
+	public void add(Doorable door) {
+		tempCtrl.add( door );
+		scanner.add((Checkable) door);
+	}
+	
+	public void add(HumiditySensor sensor) {
+		humCrtl.add(sensor);
+		scanner.add(sensor);		
+	}
+	
+	/**
+	 * Método que empieza el monitoreo
+	 */
+	public void start() {
+		while (true) {
+			tempCtrl.monitor();
+			scanner.scan();
+			sleep(2000);
+		}
+	}
+
+	/**
+	 * Método que para la ejecución
+	 * 
+	 * @param millis, valor para parar la ejecución
+	 */
+	private void sleep(int millis) {
+		try {
+			Thread.sleep(millis);
+		} catch (InterruptedException e) {
+		}
+	}
+
+}

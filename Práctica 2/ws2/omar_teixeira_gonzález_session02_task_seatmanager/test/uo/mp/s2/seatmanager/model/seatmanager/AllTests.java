@@ -1,0 +1,20 @@
+package uo.mp.s2.seatmanager.model.seatmanager;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+/**
+ * <p>
+ * Título: Clase AllTests 
+ * <p>
+ * 
+ * @author Omar Teixeira González
+ * @version 13/02/2021
+ */
+
+@RunWith(Suite.class)
+@SuiteClasses({ BookSeatTest.class, FindPassengersByAgeTest.class, SeatManagerTest.class })
+public class AllTests {
+
+}

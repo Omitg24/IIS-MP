@@ -1,0 +1,28 @@
+package uo.mp.transaction.model;
+
+public class CurrentAccountTransaction extends Transaction {
+	
+	private ClientType type;
+	
+	public CurrentAccountTransaction(String date, String number, ClientType typè ,double amount, String description) {
+		super(date, number, amount, description);
+		this.type=type;
+	}
+
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String serialize() {
+		String result = "cc;" + this.getDate() + ";"  
+				   + this.getNumber() + ";" 
+			       + this.type + ";"				   
+			       + this.getAmount() + ";" 
+				   + this.getDescription();
+		return result;
+	}
+
+}

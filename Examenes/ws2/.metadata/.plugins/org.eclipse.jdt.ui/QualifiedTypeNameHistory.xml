@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.transaction.TransactionProcessor"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.file.ValidTransactionWriter"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.file.TransactionLoader"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.TransactionValidator"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.file.InvalidTransactionWriter"/>
+    <fullyQualifiedTypeName name="uo.mp.file.FileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.file.ZipFileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.serialize.TransactionSerializer"/>
+    <fullyQualifiedTypeName name="uo.mp.file.TxtFileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.checks.ArgumentChecks"/>
+    <fullyQualifiedTypeName name="uo.mp.exceptions.InvalidLineFormatException"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.CurrentAccountTransaction"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.ClientType"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.CreditCardTransaction"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.util.IBAN"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.util.Lhun"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.impl.ArrayList"/>
+    <fullyQualifiedTypeName name="uo.mp.log.Logger"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.model.Transaction"/>
+    <fullyQualifiedTypeName name="uo.mp.sort.Collections"/>
+    <fullyQualifiedTypeName name="uo.mp.transaction.validator.sort.sortByDate"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.List"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.impl.LinkedList"/>
+</qualifiedTypeNameHistroy>

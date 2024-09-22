@@ -1,0 +1,21 @@
+package uo.mp.s6.greenhouse.scanner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Scanner {
+	private List<Checkable> devices = new ArrayList<>();
+	
+	public void add(Checkable device) {
+		devices.add(device);
+	}
+	
+	public void scan() {
+		for (Checkable device : devices) {
+			if (!device.check()) {
+				System.out.println("ATENCIÓN. El dispositivo AutomaticDoor [id=X] está estropeado");
+			}
+		}
+	}
+}
+

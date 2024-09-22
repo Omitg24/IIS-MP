@@ -1,0 +1,5 @@
+package uo.mp.s3.post.model.message;
+
+public class ToStringTest {
+
+}

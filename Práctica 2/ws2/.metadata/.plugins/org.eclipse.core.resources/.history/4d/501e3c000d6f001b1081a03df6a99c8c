@@ -1,0 +1,59 @@
+package uo.mp.s2.seatmanager.ui;
+
+import uo.mp.s2.seatmanager.model.Person;
+import uo.mp.s2.seatmanager.model.SeatManager;
+
+/**
+ * <p>
+ * Título: Clase Aplication
+ * </p>
+ * Descripcion: 
+ *
+ * @author Omar Teixeira González
+ * @version 13/02/2021
+ */
+public class Application {
+
+//Prueba de que el programa está correctamente realizado (invención propia)
+	/**
+	 * Comprueba el correcto funcionamiento de los programas.
+	 */
+	public void run() {
+		SeatManager seatManager = new SeatManager(10,4);
+		Person child1 = new Person ("María", 2);
+		Person adult1 = new Person ("Marta", 24);
+		Person retired1 = new Person ("Jose", 78);
+		Person child2 = new Person ("Pablo", 7);
+		Person adult2 = new Person ("Andres", 20);
+		Person retired2 = new Person ("Juan", 65);
+		
+		System.out.println("El array bidimensional es el siguiente: \n");
+		
+		seatManager.print();
+		
+		System.out.println("\nEl array bidimensional está vacío \n");
+		System.out.println("Las siguientes personas se sentarán: ");
+		
+		System.out.println("\t"+child1.toString() + ". En la posición 5,1");
+		System.out.println("\t"+adult1.toString()+ ". En la posición 6,2");
+		System.out.println("\t"+retired1.toString()+ ". En la posición 2,3");
+		System.out.println("\t"+child2.toString()+ ". En la posición 5,0");
+		System.out.println("\t"+adult2.toString()+ ". En la posición 4,1");
+		System.out.println("\t"+retired2.toString()+ ". En la posición 8,2");
+		
+		seatManager.bookSeat(child1,5,1);
+		seatManager.bookSeat(adult1,6,2);
+		seatManager.bookSeat(retired1,2,3);
+		seatManager.bookSeat(child2,2,0);
+		seatManager.bookSeat(adult2,4,1);
+		seatManager.bookSeat(retired2,8,2);
+		
+		System.out.println("Una vez sentados los pasajeros, el array tiene el aspecto: \n");
+		seatManager.print();
+		
+		System.out.println("\nUna lista con los pasajeros entre 7 y 65 años sería la siguiente: ");
+		for (int i=0; i<seatManager.findPassengersByAge(7, 65).size();i++) {
+			System.out.println("\t "+seatManager.findPassengersByAge(7, 65).get(i));
+		}
+	}	
+}

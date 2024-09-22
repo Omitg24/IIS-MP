@@ -1,0 +1,20 @@
+package uo.mp.s2.analyzer.wordanalyzer;
+
+public class Snippet {
+	/**
+		 * 1- Null en lugar de palabra
+		 * GIVEN
+		 * WHEN se crea un analizador con null como parametro
+		 * THEN lanzar IllegalArgumentException 
+		 */
+		@Test
+		public void testNullArgument(String[] args) {
+			try {
+				new WordAnalyzer(null);
+				fail("Esperaba excepción");
+			} catch (IllegalArgumentException e) {
+				assertEquals("Esperaba palabra y fue null",e.getMessage());
+			}
+		}
+}
+

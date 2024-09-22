@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package uo.mp.s2.seatmanager.model;
+
+/**
+ * @author Omitg
+ *
+ */
+public class SeatManager {
+
+}

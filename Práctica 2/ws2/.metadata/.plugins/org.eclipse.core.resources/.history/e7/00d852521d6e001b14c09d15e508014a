@@ -1,0 +1,32 @@
+package uo.mp.s2.analyzer;
+
+import uo.mp.s2.analyzer.ui.Application;
+
+/**
+ * <p>
+ * Título: Clase Game2048
+ * </p>
+ * <p>
+ * Descripción: A partir de un array bidimensional de números y a través de
+ * diferentes operaciones se simula un juego llamado "2048"
+ * </p>
+ * <p>
+ * Copyright: Copyright (c) 2021
+ * </p>
+ * <p>
+ * Empresa: Escuela de Ingeniería Informática - Uiversidad de Oviedo
+ * </p>
+ * 
+ * @author Omar Teixeira González
+ * @version 11/02/2021
+ */
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new Application().run();
+
+	}
+}

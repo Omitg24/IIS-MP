@@ -1,0 +1,142 @@
+package uo.mp.s3.dome.model;
+
+import java.io.PrintStream;
+
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase Item
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+
+public class Item {
+//Atributos:
+	/**
+	 * Atribto title, titulo del Cd o Dvd
+	 */
+	private String title;
+	
+	/**
+	 * Atributo playingTime, duración del Cd o Dvd
+	 */
+	private int playingTime;
+	
+	/**
+	 * Atributo gotIt
+	 */
+	private boolean gotIt;
+	
+	/**
+	 * Atributo comment
+	 */
+	private String comment;
+	
+	/**
+	 * Constructor sin parámetros de la clase Item con la creación de la superclase
+	 */
+	public Item() {
+		super();
+	}
+	
+	
+	/**
+	 * Constructor con parámetros de la clase Item con la creación de la superclase
+	 * 
+	 * @param theTitle, titulo del Cd o Dvd, de tipo String
+	 * @param time, duraciñon del Cd o Dvd, de tipo int 
+	 */
+	public Item(String theTitle, int time) {
+		super();
+		ArgumentsCheck.isTrue(theTitle!=null && !theTitle.trim().isEmpty(), 
+				"El titulo no cumple los requisitos");		
+		ArgumentsCheck.isTrue(time>0, "El tiempo no cumple los requisitos");
+		setTitle(theTitle);
+		setPlayingTime(time);
+		setOwn(false);
+		setComment("No comment");
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo titulo
+	 * 
+	 * @param title, titulo del Cd o Dvd, de tipo String
+	 */
+	protected void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo playingTime
+	 * 
+	 * @param playingTime, duración del Cd o Dvd, de tipo int
+	 */
+	protected void setPlayingTime(int playingTime) {
+		this.playingTime = playingTime;
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo ownIt
+	 * 
+	 * @param ownIt, posesión del Cd o Dvd, de tipo boolean
+	 */
+	public void setOwn(boolean ownIt) {
+		gotIt = ownIt;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo comment
+	 * 
+	 * @param comment, comentario que acompaña al Cd o al Dvd, de tipo String
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo comment
+	 * 
+	 * @return comment, comentario que acompaña al Cd o al Dvd
+	 */
+	public String getComment() {
+		return comment;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo gotIt
+	 * 
+	 * @return gotIt, posesión del Cd o Dvd
+	 */
+	public boolean getOwn() {
+		return gotIt;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo title
+	 * 
+	 * @return title, titulo del Cd o Dvd
+	 */
+	public String getTitle() {
+		return this.title;
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo playingTime
+	 * 
+	 * @return playingTime, duración del Cd o Dvd
+	 */
+	public int getPlayingTime() {
+		return this.playingTime;
+	}
+	
+	/**
+	 * Método que imprime los items
+	 * 
+	 * @param out
+	 */
+	public void print(PrintStream out) {
+		//Vacío (magia del polimorfismo)
+	}
+
+}

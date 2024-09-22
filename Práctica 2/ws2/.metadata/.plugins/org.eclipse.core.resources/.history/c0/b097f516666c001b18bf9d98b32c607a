@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package ArgumentsCheck;
+
+/**
+ * @author Omitg
+ *
+ */
+public class FirstRepeatedCharacterTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

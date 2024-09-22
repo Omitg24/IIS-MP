@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+C:\Users\omart\OneDrive\Desktop\Clase\3. Ingeniería Informática de Software\Metodología de la Programación\Practica\session01\ws1\.metadata\.plugins\org.eclipse.jdt.core
+2643972034.index
+2439516414.index
+1403821258.index
+1596476078.index
+1113535871.index
+393272115.index
+1041907634.index

@@ -1,0 +1,17 @@
+package uo.mp.s3.post.service;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.s3.post.model.Photo;
+import uo.mp.s3.post.model.Message;
+import uo.mp.s3.post.model.Post;
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * @author Omitg
+ *
+ */
+public class TheSocialNetwork {
+	
+}

@@ -1,0 +1,12 @@
+package uo.mp.s2.dome.service.medialibrary;
+
+public class AddTest {
+
+	/**
+	 * Pruebas del método Add de la clase MediaLibrary: 1- Añade un CD 2- Añade un
+	 * DVD 3-
+	 * 
+	 * 4- Añade null
+	 */
+
+}

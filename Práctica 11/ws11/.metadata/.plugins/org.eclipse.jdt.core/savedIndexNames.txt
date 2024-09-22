@@ -1,0 +1,8 @@
+INDEX VERSION 1.131+D:\Clase\3. Ingeniería Informática de Software\Metodología de la Programación\Practica\session11\ws11\.metadata\.plugins\org.eclipse.jdt.core
+476281671.index
+1596476078.index
+393272115.index
+3850029639.index
+1113535871.index
+2396067901.index
+3002175621.index

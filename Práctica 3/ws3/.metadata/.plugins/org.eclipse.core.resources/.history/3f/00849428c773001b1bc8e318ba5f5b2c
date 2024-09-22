@@ -1,0 +1,68 @@
+package uo.mp.s3.dome.model;
+
+import java.io.PrintStream;
+
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase Dvd
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+
+public class Dvd extends Item {
+//Atributos:
+	/**
+	 * Atributo director, director del Dvd
+	 */
+	private String director;
+
+	/**
+	 * Constructor con parámetros de la clase Dvd
+	 * 
+	 * @param theTitle,    titulo del Dvd, de tipo String
+	 * @param theDirector, director del Dvd, de tipo String
+	 * @param time,        duración del Dvd, de tipo String
+	 */
+	public Dvd(String theTitle, String theDirector, int time) {
+		super(theTitle, time);
+		ArgumentsCheck.isTrue(theDirector != null && !theDirector.trim().isEmpty(),
+				"El director no cumple los requisitos");
+		setDirector(theDirector);
+	}
+
+	/**
+	 * Método que modifica el valor del atributo director
+	 * 
+	 * @param director, director del Dvd, de tipo String
+	 */
+	public void setDirector(String director) {
+		this.director = director;
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo director
+	 * 
+	 * @return director, director del Dvd
+	 */
+	public String getDirector() {
+		return this.director;
+	}
+
+	/**
+	 * Método que imprime por pantalla los datos correspondientes del Cd, por
+	 * ejemplo: Titulo, duración, director, etc...
+	 */
+	public void print(PrintStream out) {
+		out.println("DVD: " + getTitle() + " (" + getPlayingTime() + " mins)");
+		out.println("Director: " + getDirector());
+		if (getOwn()) {
+			out.println("You own it");
+		} else {
+			out.println("You do not own it");
+		}
+		out.println("Comment: " + getComment());
+	}
+
+}

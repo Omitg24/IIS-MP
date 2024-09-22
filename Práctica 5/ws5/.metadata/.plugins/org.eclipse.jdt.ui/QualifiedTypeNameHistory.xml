@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.s5.shapes.Rectangle"/>
+    <fullyQualifiedTypeName name="java.awt.Shape"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.shapes.Shape"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.shapes.Circle"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.shapes.Triangle"/>
+    <fullyQualifiedTypeName name="uo.mp2021.util.checks.ArgumentChecks"/>
+    <fullyQualifiedTypeName name="java.io.PrintStream"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.dome.model.Cd"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.dome.model.Borrowable"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.dome.model.Book"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="uo.mp.s5.dome.service.MediaLibrary"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,109 @@
+package uo.mp.collections.impl;
+
+import uo.mp.collections.List;
+
+public class LinkedList implements List {
+
+	private Node head;
+	private int numberOfElements;
+	
+	@Override
+	public int size() {
+		return numberOfElements;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return size()==0;
+	}
+
+	@Override
+	public boolean contains(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void add(Object element) {
+		if (isEmpty()) {
+			addFirst(element);
+		} else {
+			Node last = getNode(size()-1);
+			last.next = new Node(element, null);
+			numberOfElements++;
+		}
+	}
+	
+	public void addFirst(Object value) {
+		head = new Node(value, head);
+		numberOfElements++;
+	}
+
+	@Override
+	public boolean remove(Object o) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Object get(int index) {
+		return getNode(index).value;
+	}
+
+	private Node getNode(int index) {
+		int position = 0;
+		Node node = head;
+		while (position < index) {
+			node = node.next;
+			position++;
+		}
+		return node;
+	}
+
+	@Override
+	public Object set(int index, Object value) {
+		return getNode(index).value=value;
+	}
+
+	@Override
+	public void add(int index, Object value) {
+		if (index==0) {
+			addFirst(value);
+		} else {
+			Node previous = getNode(index-1);
+			previous.next = new Node(value, previous.next);
+			numberOfElements++;
+		}
+	}
+
+	@Override
+	public Object remove(int index) {
+		if (isEmpty()) {
+			return null;
+		}
+		Object value;
+		if (index==0) {
+			value = head.value;
+			head = head.next;
+		} else {
+			Node previous = getNode(index-1);
+			value = previous.next.value;
+			previous.next = previous.next.next;
+		}
+		numberOfElements--;
+		return value;
+	}
+
+	@Override
+	public int indexOf(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

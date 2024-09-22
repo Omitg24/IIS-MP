@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;logFile&apos; to &apos;purchaseOrders.txt&apos;&#x0D;&#x0A;- Original project: &apos;omar_teixeira_gonzalez_session10_task_newsstand&apos;&#x0D;&#x0A;- Destination element: &apos;purchaseOrders.txt&apos;&#x0D;&#x0A;- Original element: &apos;logFile&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="src/logFile" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1618856529841" target="purchaseOrders.txt" units="0" version="1.0"/>
+</session>

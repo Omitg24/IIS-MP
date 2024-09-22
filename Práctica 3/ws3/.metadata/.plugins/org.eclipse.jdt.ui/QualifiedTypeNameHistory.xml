@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.ui.Application"/>
+    <fullyQualifiedTypeName name="jdk.tools.jlink.internal.Platform"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.model.VideoGame.Platform"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.model.Item"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.model.VideoGame"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.model.Dvd"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.model.Cd"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.dome.service.MediaLibrary"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.post.ui.Application"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.io.PrintStream"/>
+    <fullyQualifiedTypeName name="uo.mp.util.checks.ArgumentsCheck"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.post.model.Photo"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.post.service.TheSocialNetwork"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.post.model.Post"/>
+    <fullyQualifiedTypeName name="uo.mp.s3.post.model.Message"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+</qualifiedTypeNameHistroy>

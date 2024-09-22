@@ -1,0 +1,41 @@
+package uo.mp.publicationparser;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.newsstand.service.parsers.PublicationParser;
+
+/**
+ * Titulo: Clase ParseTest
+ * 
+ * @author Omitg
+ * @version 07-04-2021
+ */
+public class ParseTest {
+	
+	private List<String> list = new LinkedList<String>();	
+	
+	private PublicationParser parser;
+	
+	@Before
+	public void setUp() {
+		parser = new PublicationParser();
+	}
+	
+	/**
+	 * Pruebas del método parse de la clase PublicationParse:
+	 * 1- Recibe lista vacía
+	 * 2- Cadena para magazine y es correcta
+	 * 3- Cadena para newspaper y es correcta
+	 * 4- Cadenas con ambos y es correcta
+	 * 5- Cadena con linea correcta y otra incorrecta
+	 */
+	
+	@Test
+	public void emptyList() {
+		parser.parse(list);
+	}
+}

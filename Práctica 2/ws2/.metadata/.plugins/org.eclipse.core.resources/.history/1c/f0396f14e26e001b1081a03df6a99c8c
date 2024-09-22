@@ -1,0 +1,28 @@
+package uo.mp.s2.seatmanager.ui;
+
+import uo.mp.s2.seatmanager.model.Person;
+import uo.mp.s2.seatmanager.model.SeatManager;
+
+/**
+ * <p>
+ * Título: Clase Aplication
+ * </p>
+ * Descripcion: 
+ *
+ * @author Omar Teixeira González
+ * @version 13/02/2021
+ */
+public class Application {
+
+	/**
+	 * @param args
+	 */
+	public void run(int row, int column) {
+		SeatManager sm1 = new SeatManager(row,column);
+		System.out.println("El array bidimensional es el siguiente: ");
+		sm1.print();
+	}
+	
+	
+	
+}

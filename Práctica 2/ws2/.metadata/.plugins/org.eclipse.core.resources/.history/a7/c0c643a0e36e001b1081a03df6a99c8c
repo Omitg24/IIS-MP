@@ -1,0 +1,50 @@
+package uo.mp.s2.seatmanager.ui;
+
+import uo.mp.s2.seatmanager.model.Person;
+import uo.mp.s2.seatmanager.model.SeatManager;
+
+/**
+ * <p>
+ * Título: Clase Aplication
+ * </p>
+ * Descripcion: 
+ *
+ * @author Omar Teixeira González
+ * @version 13/02/2021
+ */
+public class Application {
+
+	/**
+	 * @param args
+	 */
+	public void run() {
+		SeatManager seatManager = new SeatManager(10,4);
+		Person child1 = new Person ("María", 2);
+		Person adult1 = new Person ("Marta", 24);
+		Person retired1 = new Person ("Jose", 78);
+		Person child2 = new Person ("Pablo", 7);
+		Person adult2 = new Person ("Andres", 20);
+		Person retired2 = new Person ("Juan", 65);
+		
+		System.out.println("El array bidimensional es el siguiente: ");
+		
+		seatManager.print();
+		
+		System.out.println("El array bidimensional está vacío, \n");
+		System.out.println("Siente personas en el array");
+		
+		seatManager.bookSeat(child1,2,1);
+		seatManager.bookSeat(adult1,1,2);
+		seatManager.bookSeat(retired1,6,3);
+		seatManager.bookSeat(child2,0,0);
+		seatManager.bookSeat(adult2,5,0);
+		seatManager.bookSeat(retired2,8,9);
+		
+		System.out.println("Una vez sentados los pasajeros, el array tiene el aspecto: ");
+		seatManager.print();
+		
+	}
+	
+	
+	
+}

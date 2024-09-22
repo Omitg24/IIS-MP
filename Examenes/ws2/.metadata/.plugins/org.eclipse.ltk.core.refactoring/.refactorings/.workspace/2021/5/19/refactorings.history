@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;TransactionsValidator_initial&apos; to &apos;omar_teixeira_gonzalez_transaction&apos;&#x0D;&#x0A;- Original element: &apos;TransactionsValidator_initial&apos;&#x0D;&#x0A;- Renamed element: &apos;TransactionsValidator_initial&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;TransactionsValidator_initial&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=TransactionsValidator_initial" name="omar_teixeira_gonzalez_transaction" references="true" stamp="1621200053633" version="1.0"/>
+</session>

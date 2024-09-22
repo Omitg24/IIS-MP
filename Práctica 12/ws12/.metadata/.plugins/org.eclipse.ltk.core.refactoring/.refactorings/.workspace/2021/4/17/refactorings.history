@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;omar_teixeira_gonzalez_session08_task_stack_and_queue&apos;" deleteContents="false" description="Delete resource &apos;omar_teixeira_gonzalez_session08_task_stack_and_queue&apos;" element1="/omar_teixeira_gonzalez_session08_task_stack_and_queue" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1619694447601"/>
+</session>

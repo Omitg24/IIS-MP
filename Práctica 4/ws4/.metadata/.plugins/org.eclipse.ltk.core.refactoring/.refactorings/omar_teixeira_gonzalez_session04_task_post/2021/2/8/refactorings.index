@@ -1,0 +1,11 @@
+1614469717415	Rename package 'uo.mp.s3.post'
+1614469740261	Rename package 'uo.mp.s3.post.model'
+1614469768760	Rename package 'uo.mp.s3.post.ui'
+1614469775131	Rename package 'uo.mp.s3.post.service'
+1614469783105	Rename package 'uo.mp.s3.post.model.message'
+1614469790565	Rename package 'uo.mp.s3.post.model.photo'
+1614469796656	Rename package 'uo.mp.s3.post.service.thesocialnetwork'
+1614469802729	Rename package 'uo.mp.s3.post.model.post'
+1614476753838	Delete element
+1614476837636	Rename type 'Application'
+1614477421542	Rename type 'SocialNetworkApp'

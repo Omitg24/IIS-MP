@@ -1,0 +1,37 @@
+package uo.mp.transaction.model;
+
+import uo.mp.checks.ArgumentChecks;
+
+public class CreditCardTransaction extends Transaction {
+	
+	private String finalDate;
+	private double maxAmount;
+	
+	public CreditCardTransaction(String date, String number, String finalDate, 
+			double maxAmount, double amount, String description) {
+		super(date, number, amount, description);
+		ArgumentChecks.isTrue(finalDate!=null && !finalDate.trim().isEmpty(), 
+				"La fecha final no cumple los requisitos");
+		ArgumentChecks.isTrue(maxAmount>0, "La cantidad máxima no cumple los requisitos");
+		this.finalDate=finalDate;
+		this.maxAmount=maxAmount;
+	}
+
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String serialize() {
+		String result = "cc;" + this.getDate() + ";"  
+							   + this.getNumber() + ";" 
+						       + this.finalDate + ";" 
+							   + this.maxAmount + ";" 
+						       + this.getAmount() + ";" 
+							   + this.getDescription();
+		return result;
+	}
+
+}

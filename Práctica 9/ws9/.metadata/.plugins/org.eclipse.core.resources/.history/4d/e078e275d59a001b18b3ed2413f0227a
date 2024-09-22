@@ -1,0 +1,79 @@
+package uo.mp.publicationparser;
+
+import static org.junit.Assert.assertEquals;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.newsstand.domain.Magazine;
+import uo.mp.newsstand.domain.Newspaper;
+import uo.mp.newsstand.service.parsers.InvalidLineFormatException;
+import uo.mp.newsstand.service.parsers.PublicationParser;
+
+/**
+ * Titulo: Clase ParseTest
+ * 
+ * @author Omitg
+ * @version 07-04-2021
+ */
+public class ParseTest {
+	
+	private List<String> list = new LinkedList<String>();		
+	private PublicationParser parser;
+	private Magazine magazine1;
+	private Newspaper newspaper1;
+	
+	@Before
+	public void setUp() {
+		parser = new PublicationParser();
+		magazine1 = new Magazine("Hobby Consolas", 10, 6, 4);
+		newspaper1 = new Newspaper("El País", 13, 3);
+	}
+	
+	/**
+	 * Pruebas del método parse de la clase PublicationParse:
+	 * 1- Recibe lista vacía
+	 * 2- Cadena para magazine y es correcta
+	 * 3- Cadena para newspaper y es correcta
+	 * 4- Cadenas con ambos y es correcta
+	 * 5- Cadena con linea correcta y otra incorrecta
+	 */
+	
+	@Test
+	public void emptyList() {
+		assertEquals(0,parser.parse(list).size());
+	}	
+	
+	@Test
+	public void magazineList() {
+		list.add(magazine1.toString());
+		parser.parse(list);
+		assertEquals(1,list.size());
+	}
+	
+	@Test
+	public void newspaperList() {
+		list.add(newspaper1.toString());
+		parser.parse(list);
+		assertEquals(1,list.size());		
+	}
+	
+	@Test
+	public void bothList() {
+		list.add(magazine1.toString());
+		list.add(newspaper1.toString());
+		parser.parse(list);
+		assertEquals(2,list.size());
+	}
+	
+	@Test	
+	public void wrongList() {
+		list.add(magazine1.toString());		
+		list.add("");
+		parser.parse(list);
+		assertEquals(1,list.size());
+	}
+}

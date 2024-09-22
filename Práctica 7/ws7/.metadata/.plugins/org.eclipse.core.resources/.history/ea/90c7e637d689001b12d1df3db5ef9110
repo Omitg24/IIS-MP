@@ -1,0 +1,66 @@
+package uo.mp.collections.testcases;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.collections.List;
+import uo.mp.collections.setting.Settings;
+
+public class AddLastTests {
+	
+	private List list;
+
+	@Before
+	public void setUp() throws Exception {
+		list = Settings.factory.newList();
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+    public void addLastTest() {
+        assertTrue(list.add("hola"));
+        assertEquals(list.get(list.size()-1),"hola");
+    }
+	
+    @Test
+    public void addLastTest2() {
+        list.add("Objeto1");
+        list.add("Objeto2");
+        list.add("Objeto3");
+        list.add("Objeto4");
+        assertTrue(list.add("Objeto5"));
+        assertEquals(list.get(list.size()-1),"Objeto5");
+    }
+    @Test
+    public void addLastTest3() {
+        list.add("Objeto1");
+        list.add("Objeto2");
+        list.add("Objeto3");
+        list.add("Objeto4");
+        assertTrue(list.add(list.get(0)));
+        assertEquals(list.get(list.size()-1),"Objeto1");
+    }
+    @Test
+    public void addLastTest4() {
+        Object obj="Objeto1";
+        list.add(obj);
+        list.add("Objeto2");
+        list.add("Objeto3");
+        list.add("Objeto4");
+        assertTrue(list.add(obj));
+        assertEquals(list.get(list.size()-1),obj);
+    }
+    @Test
+    (expected=IllegalArgumentException.class)
+    public void addLast5() {
+        list.add(null);
+    }
+}

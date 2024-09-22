@@ -1,0 +1,67 @@
+package uo.mp.s3.post.service.thesocialnetwork;
+
+import org.junit.Before;
+
+import uo.mp.s3.post.model.Message;
+import uo.mp.s3.post.model.Photo;
+import uo.mp.s3.post.model.Post;
+import uo.mp.s3.post.service.TheSocialNetwork;
+
+public class FindPostByUserTest {
+	
+	/**
+	 * 
+	 */
+	private Post pic1;
+	
+	private Post pic2;
+	
+	private Post pic3;
+		
+	private Post pic4;
+	
+	private Post pic5;
+	
+	private Post pic6;
+	
+	private Post msg1;
+	
+	private Post msg2;
+	
+	private Post msg3;
+	
+	private Post msg4;
+	
+	private Post msg5;
+	
+	private TheSocialNetwork network;
+	
+	@Before
+	private void setUp() {
+		network = new TheSocialNetwork();
+		msg1 = new Message("Omitg®","Bienvenido a la Red Social");
+		msg2 = new Message("ElPlayerHD","Aqui verás ejemplos de lo que es posible");
+		msg3 = new Message("DaneonX","Y aun queda mucho más por venir");
+		msg4 = new Message("Omitg®", "Atento a las novedades que se vienen!");
+		msg5 = new Message("Diana1806","Esperamos satisfacer vuestras peticiones");
+		pic1 =  new Photo ("PeacefulGoon39","AdminFile");
+		pic2 = new Photo ("Omitg®", "CreatorFile");
+		pic3 = new Photo ("ElPlayerHD", "PartnerFile");
+		pic4 = new Photo ("DaneonX", "PartnerFile");
+		pic5 = new Photo ("Sky00","AdminFile");
+		pic6 = new Photo ("Diana1806","ManagerFile");		
+		network.addPost(msg1);
+		network.addPost(msg2);
+		network.addPost(msg3);
+		network.addPost(msg4);
+		network.addPost(msg5);
+		network.addPost(pic1);
+		network.addPost(pic2);
+		network.addPost(pic3);
+		network.addPost(pic4);
+		network.addPost(pic5);
+		network.addPost(pic6);
+	}
+	
+	
+}

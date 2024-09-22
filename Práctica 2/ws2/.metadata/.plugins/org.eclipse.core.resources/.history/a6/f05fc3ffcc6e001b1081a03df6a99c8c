@@ -1,0 +1,134 @@
+package uo.mp.s2.seatmanager.model;
+
+import java.util.ArrayList;
+
+import uo.mp.util.checks.*;
+
+/**
+ * Titulo: Clase Person
+ * 
+ * Descripción: Clase encargada de sentar a las personas
+ *  
+ * @author Omitg
+ * @version 13/02/2021
+ */
+
+public class SeatManager {
+
+//Constantes:
+	/**
+	 * Número máximo de filas
+	 */
+	public static final int MAX_ROWS = 10;
+	
+	/**
+	 * Número máximo de columnas
+	 */
+	public static final int MAX_COLUMNS = 4;
+	
+//Atributos: 
+	/**
+	 * Personas a sentar
+	 */
+	private Person[][] seats;
+	
+	/**
+	 * Filas del array bidimensional 	
+	 */
+	private int rows;
+	
+	/**
+	 * Columnas del array bidimensional
+	 */
+	private int columns;
+
+	/**
+	 * Constructor con parámetros rows y columns de la calse SeatManager
+	 * 
+	 * @param rows, filas del array, de tipo int
+	 * @param columns, columnas del array, de tipo int
+	 */
+	public SeatManager(int rows, int columns) {
+		ArgumentsCheck.isTrue(rows<=MAX_ROWS && columns<=MAX_COLUMNS, "El array no cumple los requisitos");
+		setRows(rows);
+		setColumns(columns);
+	    seats =  new Person[rows][columns];	
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo rows
+	 * 
+	 * @param rows, filas del array, de tipo int
+	 */
+	private void setRows(int rows) {
+		this.rows=rows;
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo column
+	 *  
+	 * @param columns, columnas del array, de tipo int
+	 */
+	private void setColumns(int columns) {
+		this.columns=columns;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo rows
+	 * 
+	 * @return rows, filas del avión
+	 */
+	public int getRows() {
+		return rows;
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo columns
+	 * 
+	 * @return columns, columnas del avión
+	 */
+	public int getColumns() {
+		return columns;
+	}
+	
+	/**
+     * Método que dado un persona, una fila y una columna, si el asiento en el que se quiere sentar esta vacío (null),
+     * se sienta en dicha posición del array; en caso contrario (de estar ocupado), comprueba si la persona es adulta no jubilada,
+     * de ser así, sienta a la persona en dicha posición y devuelve true. Si la persona no se puede sentar devuelve false
+     * 
+     * @param passenger, persona a sentar en el array, de tipo Person
+     * @param row, fila del array, de tipo int
+     * @param column, columna del array, de tipo int
+     * 
+     * @return true o false, en función de si se cumple la condicion dada
+     */
+    public boolean bookSeat(Person passenger, int row, int column){
+        ArgumentsCheck.isTrue(passenger != null, "Esperaba pasajero y fue null");
+        ArgumentsCheck.isTrue(row >= 0 && row <  seats.length, "Fila fuera de limites");
+        ArgumentsCheck.isTrue(column>=0 && column < seats[row].length, "Columna fuera de limites");        
+        if (seats[row][column] == null || seats[row][column].getAge()>=Person.ADULTHOOD_AGE 
+        		&& seats[row][column].getAge()<=Person.RETIREMENT_AGE){
+            seats[row][column] =  passenger;
+            return true;
+        }
+        return false;
+    }
+    
+    
+   /**
+    * 
+    */
+    public ArrayList<Person> findPassengersByAge(int min_age, int max_age){
+    	ArrayList<Person> listOfPassengers = new ArrayList<Person>();    	
+    	for (int i=0; i<seats.length;i++) {
+    		for (int j=0; j<seats[i].length;j++) {
+    			if (i%2==0) {
+    				if (seats[i][j].getAge()>=min_age && seats[i][j].getAge()<=max_age) {
+    					listOfPassengers.add(seats[i][j]);
+    				}
+    			}
+    		}
+    	}    	
+    	return listOfPassengers;
+    }
+}

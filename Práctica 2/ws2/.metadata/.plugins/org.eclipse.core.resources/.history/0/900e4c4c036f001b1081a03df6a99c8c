@@ -1,0 +1,23 @@
+package uo.mp.s2.seatmanager.model.seatmanager;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+
+import org.junit.Test;
+
+import org.junit.Before;
+
+import uo.mp.s2.seatmanager.model.Person;
+import  uo.mp.s2.seatmanager.model.SeatManager;
+
+/**
+ * <p>
+ * Titulo: Clase BookSeatTest
+ *   
+ * @author Omitg
+ * @version 13/02/2021
+ */
+
+public class FindPassengersByAgeTest {
+	
+}

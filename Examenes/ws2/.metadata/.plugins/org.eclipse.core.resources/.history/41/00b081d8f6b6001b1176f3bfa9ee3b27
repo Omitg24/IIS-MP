@@ -1,0 +1,183 @@
+package uo.mp.transaction.validator.parser;
+
+import uo.mp.checks.ArgumentChecks;
+import uo.mp.collections.List;
+import uo.mp.collections.impl.ArrayList;
+import uo.mp.exceptions.InvalidLineFormatException;
+import uo.mp.log.Logger;
+import uo.mp.transaction.model.ClientType;
+import uo.mp.transaction.model.CreditCardTransaction;
+import uo.mp.transaction.model.CurrentAccountTransaction;
+import uo.mp.transaction.model.Transaction;
+
+public class TransactionParser {
+private int lineNumber = 1;
+	
+	public List<Transaction> parse(List<String> lines){
+		
+		ArgumentChecks.isNotNull(lines);
+		List<Transaction> transactions = new ArrayList<>();
+		
+		for(String line: lines) {
+			lineNumber++;
+			try {	
+				transactions.add( parseLine(line));
+			}catch (InvalidLineFormatException e) {
+				Logger.log(e.getMessage());
+			}
+		}
+		return transactions;
+		
+		}
+
+	private Transaction parseLine(String line) throws InvalidLineFormatException {
+		checkIsBlank(line);
+		checkDate(line);
+		String [] parts = line.split(";");
+		
+		if(parts[0].equals("cc")) {
+			return parseCreditCard(parts);
+			
+		}else if(parts[0].equals("acc")) {
+				return parseCurrentCreditCard(parts);	
+				
+		}else {
+			throw new InvalidLineFormatException(lineNumber, " PALABRA CLAVE NO VÁLIDA");
+		}
+	}
+	
+	
+	/**
+	 * checkea la fecha
+	 * @param line
+	 * @throws InvalidLineFormatException
+	 */
+	private void checkDate(String line) throws InvalidLineFormatException {
+		String [] parts = line.split(";");
+		String [] date = parts[1].split("/");
+		
+		String year = date[0];
+		String month = date[1];
+		String day = date[2];
+		
+		try {
+			Integer.parseInt(year);
+			Integer.parseInt(month);
+			Integer.parseInt(day);
+		}catch (NumberFormatException e) {
+			throw new InvalidLineFormatException(lineNumber, "FORMATO DE FECHA NO VALIDO");
+		}
+		
+		if(date.length != 3){
+			 throw new InvalidLineFormatException(lineNumber,"FORMATO DE FECHA NO VALIDO");
+        }
+			
+		if (Integer.parseInt(day) < 1 || Integer.parseInt(day) > 31) {
+			throw new InvalidLineFormatException(lineNumber,"FORMATO DE FECHA NO VALIDO");
+			
+		}else if(Integer.parseInt(month) < 1 || Integer.parseInt(month) > 12) {
+            throw new InvalidLineFormatException(lineNumber,"FORMATO DE FECHA NO VALIDO");
+           
+            
+		}else if(Integer.parseInt(year) < 2021) {
+			
+			throw new InvalidLineFormatException(lineNumber,"FORMATO DE FECHA NO VALIDO");
+		}
+			
+	
+		
+	}
+
+	/**
+	 * Comprueba si es una currentAccount correcta
+	 * @param parts
+	 * @return
+	 * @throws InvalidLineFormatException
+	 */
+	private Transaction parseCurrentCreditCard(String[] parts) throws InvalidLineFormatException {
+		checkParts(parts, 6);
+		//checkClient(parts);
+		String date = parts[1];
+		String number = parts[2];
+		String client = (parts[3]);
+		Double amount= toDouble(parts[4]);
+		String description = parts[5];
+		
+		return new CurrentAccountTransaction(date, number, amount, description, client);
+	}
+	
+	
+    /**
+     * Checkea si es un formato de cliente correcto   
+     * @param parts
+     * @throws InvalidLineFormatException 
+     */
+	@SuppressWarnings("unused")
+	private void checkClient(String[] parts) throws InvalidLineFormatException {
+		String client = parts[3];
+		if(client.equals("N") || client.equals("P")) {
+			throw new InvalidLineFormatException(lineNumber, "FORMATO DE CLIENTE NO VÁLIDO");
+		}
+	}
+
+//	/**
+//	 * convierte string a enum
+//	 * @param string
+//	 * @return
+//	 * @throws InvalidLineFormatException 
+//	 */
+//	private Client toEnum(String string) throws InvalidLineFormatException {
+//		try {
+//			CurrentAccountTransaction.Client client = CurrentAccountTransaction.Client.valueOf(string);
+//			return client;
+//		}catch (Exception e){
+//			throw new InvalidLineFormatException(lineNumber, " FORMATO DE NÚMERO NO VÁLIDO");
+//		}
+//	}
+
+	/**
+	 * Comprueba si es una creditCard correcta
+	 * @param parts
+	 * @return
+	 * @throws InvalidLineFormatException
+	 */
+	private Transaction parseCreditCard(String[] parts) throws InvalidLineFormatException {
+		checkParts(parts, 7);
+		String date = parts[1];
+		String number = parts[2];
+		String finalDate = parts[3];
+		Double maxAmount = toDouble(parts[4]);
+		Double amount= toDouble(parts[5]);
+		String description = parts[6];
+		
+		return new CreditCardTransaction(date, number, finalDate, maxAmount, amount, description);
+	}
+	
+	
+	/**
+	 * Transforma a double el string
+	 * @param string
+	 * @return
+	 * @throws InvalidLineFormatException 
+	 */
+	private Double toDouble(String string) throws InvalidLineFormatException {
+		try {
+			return Double.parseDouble(string);
+		}catch(NumberFormatException e) {
+			throw new InvalidLineFormatException(lineNumber, " FORMATO DE NÚMERO NO VÁLIDO");
+		}
+	}
+	
+	
+	/**
+	 * Checkea las diferentes partes
+	 * @param parts
+	 * @param i
+	 * @throws InvalidLineFormatException
+	 */
+	private void checkParts(String[] parts, int i) throws InvalidLineFormatException {
+		if(parts.length != i) {
+			throw new InvalidLineFormatException(lineNumber, " NÚMERO DE CAMPOS INCORRECTO");
+		}
+	}
+}

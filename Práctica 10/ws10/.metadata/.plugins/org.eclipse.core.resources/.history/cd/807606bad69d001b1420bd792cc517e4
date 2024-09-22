@@ -1,0 +1,5 @@
+package uo.mp.newsstand.service.exception;
+
+public class AlreadyExitsException {
+
+}

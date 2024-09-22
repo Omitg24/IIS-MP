@@ -1,0 +1,95 @@
+package uo.mp.collections.testcases;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.collections.List;
+import uo.mp.collections.setting.Settings;
+
+/**
+ * Titulo: Clase IndexOfTests
+ * 
+ * @author Omitg
+ * @version 30-03-2021
+ */
+public class IndexOfTests {
+	/**
+	 * Atributo lista
+	 */
+	private List list;
+
+	/**
+	 * Creación de la lista para su posterior uso
+	 */
+	@Before
+	public void setUp(){
+		list = Settings.factory.newList();
+	}
+
+	/**
+	 * 1- Se busca un objeto que no esta
+	 * GIVEN Se crea una lista y un objeto
+	 * WHEN Se llama al método indexOf
+	 * THEN Se comprueba que devuelve -1
+	 */
+	@Test
+	public void testIndexNotExist() {
+		Object obj = new Object();
+		assertEquals(-1,list.indexOf(obj));
+	}
+	
+	/**
+	 * 2- Se busca un objeto null
+	 * GIVEN Se crea una lista
+	 * WHEN Se llama al método indexOf
+	 * THEN Se comprueba que devuelve -1
+	 */
+	@Test
+	public void testIndexNullElements() {
+		assertEquals(-1,list.indexOf(null));
+	}
+	
+	/**
+	 * 3- Se crea una lista y varios objetos que se añaden
+	 * GIVEN Se crea una lista y un objeto
+	 * WHEN Se llama al método indexOf con los objetos
+	 * THEN Se comprueba que devuelve la posición de cada uno de ellos
+	 */
+	@Test
+	public void testIndexCorrect() {
+		Object obj1 = new Object();
+		Object obj2 = new Object();
+		Object obj3 = new Object();
+		Object obj4 = new Object();
+		list.add(obj1);
+		list.add(obj2);
+		list.add(obj3);
+		list.add(obj4);
+		assertEquals(0,list.indexOf(obj1));
+		assertEquals(1,list.indexOf(obj2));
+		assertEquals(2,list.indexOf(obj3));
+		assertEquals(3,list.indexOf(obj4));
+	}
+	
+	/**
+	 * 4- Se crea una lista y varios objetos, uno de ellos se añade repetido
+	 * GIVEN Se crea una lista y varios objetos
+	 * WHEN Se llama al método indexOf del objeto repetido
+	 * THEN Se comprueba que devuelve la primera aparición
+	 */
+	@Test
+	public void testIndexRepeatedElements() {
+		Object obj1 = new Object();
+		Object obj2 = new Object();
+		Object obj3 = new Object();
+		Object obj4 = new Object();
+		list.add(obj1);
+		list.add(obj2);
+		list.add(obj3);
+		list.add(obj4);
+		list.add(obj1);
+		assertEquals(0,list.indexOf(obj1));		
+	}
+}

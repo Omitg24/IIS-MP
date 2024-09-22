@@ -1,0 +1,5 @@
+package uo.mp.s2.game.model.game2048;
+
+public class MoveUpTest {
+
+}

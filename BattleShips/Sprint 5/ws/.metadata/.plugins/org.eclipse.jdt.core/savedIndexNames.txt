@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+D:\Clase\3. Ingeniería Informática de Software\Primer curso\Segundo Semestre\Metodología de la Programación\BattleShips\Sprint 5\ws\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index

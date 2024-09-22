@@ -1,0 +1,99 @@
+package uo.mp.s2.seatmanager.model.seatmanager;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+import  uo.mp.s2.seatmanager.model.SeatManager;
+
+public class SeatManagerConstructorTest {
+	/**
+	 * Pruebas del constructor con parámetros de la clase SeatManager:
+	 * Positivas (Pruebas de funcionalidad): 
+	 * 1- Cumple los límites de las filas y las columnas -> Crea el array bidimensional
+	 * 2- En el limite de las filas -> Crea el array bidimensional
+	 * 3- En el límite de las columnas -> Crea el array bidimensional
+	 * 4- En el límite de ambas -> Crea el array bidimensional
+	 * 
+	 * Negativas (Pruebas de robustez):
+	 * 5- Superior al límite de las filas -> Lanza la excepción
+	 * 6- Superior al límite de las columnas -> Lanza la excepción
+	 * 7- Superior al límite de ambas -> Lanza la excepción
+	 */
+	
+	/**
+	 * 1- Cumple los límites de las filas y las columnas -> Crea el array bidimensional
+	 * GIVEN seatManager recibe un numero de filas y columnas dentro de los límites
+	 * WHEN
+	 */
+	@Test
+	public void testConstructorBothOk() {
+		SeatManager seatManager = new SeatManager(8,3);
+		int r=seatManager.getRows();
+		int c=seatManager.getColumns();
+		assertEquals(8,r);
+		assertEquals(3,c);
+	}
+	
+	/**
+	 * 2- En el limite de las filas -> Crea el array bidimensional
+	 */
+	@Test
+	public void testConstructorRowsInLimit() {
+		SeatManager seatManager = new SeatManager(10,3);
+		int r=seatManager.getRows();
+		int c=seatManager.getColumns();
+		assertEquals(10,r);
+		assertEquals(3,c);
+	}
+	
+	/**
+	 * 3- En el límite de las columnas -> Crea el array bidimensional
+	 */
+	@Test
+	public void testConstructorColumnsInLimit() {
+		SeatManager seatManager = new SeatManager(8,4);
+		int r=seatManager.getRows();
+		int c=seatManager.getColumns();
+		assertEquals(8,r);
+		assertEquals(4,c);
+	}
+	
+	/**
+	 * 4- En el límite de ambas -> Crea el array bidimensional
+	 */
+	@Test
+	public void testConstructorBothInLimitg() {
+		SeatManager seatManager = new SeatManager(10,4);
+		int r=seatManager.getRows();
+		int c=seatManager.getColumns();
+		assertEquals(10,r);
+		assertEquals(4,c);
+	}
+	
+	/**
+	 * 5- Superior al límite de las filas -> Lanza la excepción
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testConstructorRowsOverLimit() {
+		new SeatManager(12,3);		
+	}
+	
+	/**
+	 * 6- Superior al límite de las columnas -> Lanza la excepción
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testConstructorColumnsOverLimit() {
+		new SeatManager(8,6);		
+	}
+	
+	/**
+	 * 7- Superior al límite de ambas -> Lanza la excepción
+	 */
+	@Test
+	(expected=IllegalArgumentException.class)
+	public void testConstructorBotgOverLimit() {
+		new SeatManager(12,6);		
+	}
+}

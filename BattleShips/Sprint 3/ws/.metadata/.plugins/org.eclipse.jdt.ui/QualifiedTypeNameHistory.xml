@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.battleship.game.Game"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.board.Coordinate"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.interaction.GamePresenter"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.console.ConsoleGamePresenter"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.util.IO"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.board.Board"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.player.Player"/>
+    <fullyQualifiedTypeName name="uo.mp2021.util.checks.StateChecks"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.interaction.GameInteractor"/>
+    <fullyQualifiedTypeName name="uo.mp.battleship.interaction.RandomInteractor"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,89 @@
+package uo.mp.s3.dome.model;
+
+import java.io.PrintStream;
+
+public class VideoGame {
+//Enumeraciones:
+	/**
+	 * Enumerador Platform
+	 */
+	enum Platform{XBOX,PLAYSTATION,NINTENDO};
+	
+//Atributos:
+	/**
+	 * Titulo del videojuego
+	 */
+	private String title;
+
+	private String author;
+
+	private boolean gotIt;
+
+	private String comment;
+
+	private int players;
+	
+	private Platform platform;
+
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public boolean getOwn() {
+		return gotIt;
+	}
+
+	public void setOwn(boolean gotIt) {
+		this.gotIt = gotIt;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public int getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(int players) {
+		this.players = players;
+	}
+
+	public Platform getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(Platform platform) {
+		this.platform = platform;
+	}
+	
+	public void print(PrintStream out) {
+		out.println("Videogame: " + getTitle());
+		out.println("Author: " + getAuthor());
+		if (getOwn()) {
+			out.println("You own it");
+		} else {
+			out.println("You do not own it");
+		}
+		out.println("Comment: " + getComment());
+		out.println("Players: " + getPlayers());
+		out.println("Platform: " + getPlatform());
+	}
+}

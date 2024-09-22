@@ -1,0 +1,23 @@
+package uo.mp.s2.analyzer;
+
+import uo.mp.s2.analyzer.ui.Application;
+
+/**
+ * <p>
+ * Título: Clase Main
+ * </p>
+ *
+ * @author Omar Teixeira González
+ * @version 12/02/2021
+ */
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		new Application().run();
+
+	}
+}

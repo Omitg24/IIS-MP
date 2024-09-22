@@ -1,0 +1,7 @@
+INDEX VERSION 1.131+D:\Clase\3. Ingeniería Informática de Software\Metodología de la Programación\BattleShips\Sprint 2\ws\.metadata\.plugins\org.eclipse.jdt.core
+651306830.index
+393272115.index
+1596476078.index
+1113535871.index
+3218831092.index
+2528657329.index

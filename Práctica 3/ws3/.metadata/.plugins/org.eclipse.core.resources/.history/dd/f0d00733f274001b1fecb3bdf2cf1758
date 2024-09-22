@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package uo.mp.s3.post.model.message;
+
+/**
+ * @author Omitg
+ *
+ */
+public class MessageTest {
+
+}

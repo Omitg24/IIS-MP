@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="ruralvia.Transaction"/>
+    <fullyQualifiedTypeName name="ruralvia.PaymentGateway"/>
+    <fullyQualifiedTypeName name="javax.swing.text.Utilities"/>
+    <fullyQualifiedTypeName name="paypal.PayPalAPI"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="payment.service.Retail"/>
+    <fullyQualifiedTypeName name="payments.ui.PayApp"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="payments.model.Payments"/>
+    <fullyQualifiedTypeName name="payments.model.CreditCard"/>
+    <fullyQualifiedTypeName name="payments.model.Paypal"/>
+    <fullyQualifiedTypeName name="payments.model.Cash"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.List"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.impl.ArrayList"/>
+</qualifiedTypeNameHistroy>

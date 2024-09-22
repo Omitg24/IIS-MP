@@ -1,0 +1,154 @@
+package uo.mp.s4.dome.service.medialibrary;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.s4.dome.model.Cd;
+import uo.mp.s4.dome.model.Dvd;
+import uo.mp.s4.dome.model.Item;
+import uo.mp.s4.dome.model.VideoGame;
+import uo.mp.s4.dome.model.VideoGame.Platform;
+import uo.mp.s4.dome.service.MediaLibrary;
+
+/**
+ * Titulo: Clase AddTest
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+public class AddTest {
+	/**
+	 * Atributo cd
+	 */
+	private Item cd;
+	/**
+	 * Atributo dvd
+	 */
+	private Item dvd;
+	/**
+	 * Atributo game
+	 */
+	private Item game;
+	
+	/**
+	 * Atributo librería
+	 */
+	private MediaLibrary lib;
+	
+	/**
+	 * Creación de atributos para su uso posterior
+	 */
+	@Before
+	public void SetUp() {
+		lib = new MediaLibrary();
+		cd = new Cd("TIM", "Avicii", 12, 38, 19.99);
+		dvd = new Dvd("Inception","Christopher Nolan", 162, 19.99);
+		game = new VideoGame("Batman: Arkham Knight","Sefton Hill", 1, Platform.XBOX, 49.99);
+	}
+	
+	/**
+	 * Pruebas del método Add de la clase MediaLibrary: 
+	 * Pruebas de funcionalidad:
+	 * 1- Añade un CD  -> Se añade
+	 * 2- Añade un DVD  -> Se añade
+	 * 3- Añade un VideoGame -> Se añade
+	 * 4- Añade un CD y un DVD -> Se añaden
+	 * 5- Añade un DVD y un VideoGame -> Se añaden
+	 * 6- Añade un CD, un DVD y un VideoGame -> Se añaden
+	 * 
+	 * Pruebas de robustez:
+	 * 7- Añade null -> Se lanza la excepción
+	 */
+
+//Pruebas de funcionalidad:
+	/**
+	 * 1- Añade un CD  -> Se añade
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un CD
+	 * THEN Se comprueba que se ha añadido un objeto
+	 */
+	@Test
+	public void testAddCD() {
+		lib.add(cd);
+		assertEquals(1,lib.getItems().size());
+	}
+	
+	/**
+	 * 2- Añade un DVD  -> Se añade
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un DVD
+	 * THEN Se comprueba que se ha añadido un objeto
+	 */
+	@Test
+	public void testAddDVD() {
+		lib.add(dvd);
+		assertEquals(1,lib.getItems().size());
+	}
+	
+	/**
+	 * 3- Añade un VideoGame -> Se añade
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un VideoGame
+	 * THEN Se comprueba que se ha añadido un objeto
+	 */
+	@Test
+	public void testAddVideoGame() {
+		lib.add(game);
+		assertEquals(1,lib.getItems().size());
+	}
+	
+	/**
+	 * 4- Añade un CD y un DVD -> Se añaden
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un CD y un DVD
+	 * THEN Se comprueba que se han añadido 2 objetos
+	 */
+	@Test
+	public void testAddCDDAndDVD() {
+		lib.add(cd);
+		lib.add(dvd);		
+		assertEquals(2,lib.getItems().size());
+	}
+	
+	/**
+	 * 5- Añade un DVD y un VideoGame -> Se añaden
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un DVD y un VideoGame
+	 * THEN Se comprueba que se han añadido 2 objetos
+	 */
+	@Test
+	public void testAddDVDAndideoGame() {
+		lib.add(dvd);
+		lib.add(game);
+		assertEquals(2,lib.getItems().size());
+	}
+	
+	/**
+	 * 6- Añade un CD, un DVD y un VideoGame -> Se añaden
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade un CD, un DVD y un VIdeoGame
+	 * THEN Se comprueba que se han añadido 3 objetos
+	 */
+	@Test
+	public void testAddAll() {
+		lib.add(cd);
+		lib.add(dvd);
+		lib.add(game);
+		assertEquals(3,lib.getItems().size());
+	}
+	
+//Pruebas de robustez:
+	/**
+	 * 7- Añade null -> Se lanza la excepción
+	 * GIVEN Se pasa una libreria y varios productos
+	 * WHEN Se añade null
+	 * THEN Se lanza la excepción
+	 */
+	@Test
+	(expected = IllegalArgumentException.class)
+	public void testAddNull() {
+		lib.add(null);		
+	}
+}

@@ -1,0 +1,48 @@
+package uo.mp.s2.seatmanager.model.seatmanager;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import  uo.mp.s2.seatmanager.model.SeatManager;
+
+/**
+ * <p>
+ * Titulo: Clase BookSeatTest
+ *   
+ * @author Omitg
+ * @version 13/02/2021
+ */
+
+public class BookSeatTest {
+	
+	private SeatManager sm1;
+    @Before
+    public void setUp(){
+        sm1= new SeatManager(SeatManager.MIN_FIRST_ROWS, SeatManager.MIN_STANDARD_ROWS);
+    }
+	
+	/**
+	 * Pruebas del método bookSeat de la clase SeatManager:
+	 * Positivas (Pruebas de funcionalidad):
+	 * 1- El asiento está vacío -> Sienta a la persona y devuelve true
+	 * 2- El asiento está ocupado por una persona adulta no jubilada -> Sienta a la persona y devuelve true
+	 * 3- El asiento está ocupado por una persona no adulta -> No sienta a la persona y devuelve false
+	 * 4- El asiento está ocupado pro una persona adulta jubilada -> No sienta a la persona y devuelve false
+	 * 
+	 * Negativas (Pruebas de robustez):
+	 * 5- Se introduce un pasajero null -> Lanza la excepción 
+	 * 6- La fila introducida es menor a 0 -> Lanza la excepción
+	 * 7- La fila introducida es mayor que el numero de filas -> Lanza la excepción
+	 * 8- La columna introducida es menor a 0 -> Lanza la excepción
+	 * 9- La columna introducida es mayor que el numero de columnas -> Lanza la excepción
+	 */
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testBookSeatEmpty() {
+		
+	}
+}

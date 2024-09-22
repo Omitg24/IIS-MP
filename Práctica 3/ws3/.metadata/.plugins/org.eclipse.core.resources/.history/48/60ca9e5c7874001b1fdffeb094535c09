@@ -1,0 +1,20 @@
+package uo.mp.s3.post.ui;
+
+/**
+ * Titulo: Clase Application
+ * 
+ * Descripción: Clase que lanza el programa mediante lo creado en .model y
+ * .service
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+public class Application {
+
+	/**
+	 * Método que lanza el programa mediante lo creado en .model y .service
+	 */
+	public static void run() {
+		
+	}
+}

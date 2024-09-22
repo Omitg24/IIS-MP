@@ -1,0 +1,38 @@
+package uo.mp.s6.greenhouse.scanner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Titulo: Clase Scanner
+ * 
+ * @author Omitg
+ * @version 18-03-2021
+ */
+public class Scanner {
+	/**
+	 * Atributo lista de devices checkeables	
+	 */
+	private List<Checkable> devices = new ArrayList<>();
+	
+	/**
+	 * Método que añade dispositivos
+	 * 
+	 * @param device, dispositivo a añadir
+	 */
+	public void add(Checkable device) {
+		devices.add(device);
+	}
+	
+	/**
+	 * Método que scanea los dispositivos en la lista
+	 */
+	public void scan() {
+		for (Checkable device : devices) {
+			if (!device.check()) {
+				System.out.println("ATENCIÓN. El dispositivo " + device.toString() +"[id=X] está estropeado");
+			}
+		}
+	}
+}
+

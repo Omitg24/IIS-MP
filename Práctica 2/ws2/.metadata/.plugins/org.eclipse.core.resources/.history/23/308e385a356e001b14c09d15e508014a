@@ -1,0 +1,104 @@
+package uo.mp.s2.analyzer.wordanalyzer;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import uo.mp.s2.analyzer.model.WordAnalyzer;
+
+public class FirstMultipleCharacterTest {
+	
+	/**
+	 * Pruebas para el método firstRepeatedCharacter de la clae Word Analyzer:
+	 * 1- Palabra sin caracteres repetidos -> Devuelve 0.
+	 * 2- Palabra con caracteres repetidos consecutivos-> Devuelve el caracter
+	 * 3- Palabra con caracteres repetidos no consecutivos -> Devuelve el caracter
+	 * 4- Palabra varios caracteres repetidos -> Devuelve el caracter
+	 * 5- Palabra con caracteres repetidos consecutivos mas de 2 -> Devuelve el primer caracter que se repite
+	 * 6- Palabra con caracteres repetidos al comienzo -> Devuelve el primer caracter que se repite
+	 * 7- Palabra con caracteres repetidos al final -> Devuelve el primer caracter que se repite
+	 * 8- Palabra con un solo caracter-> Devolver 0
+	 */
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterNoCharactersRepeated() {
+		WordAnalyzer analyzer = new WordAnalyzer("hola");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals(0,r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterCharactersRepeatedInARow() {
+		WordAnalyzer analyzer = new WordAnalyzer("pollo");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('o',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterNotInARow() {
+		WordAnalyzer analyzer = new WordAnalyzer("naranja");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('n',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterMoreThanOne() {
+		WordAnalyzer analyzer = new WordAnalyzer("dromedario");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('d',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterMoreThanOneRow() {
+		WordAnalyzer analyzer = new WordAnalyzer("aabcdd");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('a',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterAtTheStart() {
+		WordAnalyzer analyzer = new WordAnalyzer("llama");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('l',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacterAtTheEnd() {
+		WordAnalyzer analyzer = new WordAnalyzer("motocross");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals('o',r);
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testFirstMultipleCharacter() {
+		WordAnalyzer analyzer = new WordAnalyzer("a");
+		char r=analyzer.firstMultipleCharacter();
+		assertEquals(0,r);
+	}
+	
+	
+}

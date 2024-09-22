@@ -1,0 +1,59 @@
+package uo.mp.s3.dome.service;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.s3.dome.model.Item;
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase MediaLibrary
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+
+public class MediaLibrary {
+	
+//Atributos:
+	/**
+	 * Lista de items 
+	 */
+	private ArrayList<Item> items = new ArrayList<Item>();
+	
+	/**
+	 * Añade un cd o dvd a la lista, no se permite añadir null
+	 * 
+	 * @param item, el item a añadir
+	 */
+	public void add(Item item) {
+		ArgumentsCheck.isTrue(item!=null, "Item debe de ser distinto de null");
+		items.add(item);
+	}
+	
+	/**
+	 * Método que deuvelve el numero de items presentes en la lista.
+	 * 
+	 * @return count, numero de items de la lista
+	 */
+	public int getNumberOfItemsOwned() {
+		int count = 0;
+		for (Item item : items) {
+			if(item.getOwn()) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	/**
+	 * Método que imprime el contenido de todos los elementos de la lista
+	 * 
+	 * @param out, imprime desde la posición indicada, de tipo PrintStream
+	 */
+	public void list(PrintStream out) {
+		for (Item item : items) {
+			item.print(out);
+		}
+	}
+}

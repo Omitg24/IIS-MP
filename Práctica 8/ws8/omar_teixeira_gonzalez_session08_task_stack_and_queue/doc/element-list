@@ -1,0 +1,10 @@
+uo.mp.collections
+uo.mp.collections.impl
+uo.mp.collections.impl.queue
+uo.mp.collections.impl.stack
+uo.mp.collections.iterator
+uo.mp.collections.queue
+uo.mp.collections.setting
+uo.mp.collections.stack
+uo.mp.collections.testcases
+uo.mp.collections.ui

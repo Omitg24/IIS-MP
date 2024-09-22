@@ -1,0 +1,58 @@
+package uo.mp.marker.exception;
+
+/**
+ * Titulo: Clase NewsStandException
+ * 
+ * @author Omitg
+ * @version 29-04-2021
+ */
+@SuppressWarnings("serial")
+public class MarkerException extends Exception {
+
+	/**
+	 * Constructor MarkerException h
+	 */
+	public MarkerException() {
+	}
+
+	/**
+	 * Método que lanza un mensaje
+	 * 
+	 * @param message, mensaje
+	 */
+	public MarkerException(String message) {
+		super(message);
+	}
+
+	/**
+	 * Método que lanza la causa
+	 * 
+	 * @param cause, causa
+	 */
+	public MarkerException(Throwable cause) {
+		super(cause);
+	}
+
+	/**
+	 * Método que lanza un mensaje y la causa
+	 * 
+	 * @param message, mensaje
+	 * @param cause,   cause
+	 */
+	public MarkerException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	/**
+	 * Método que lanza un mensaje, la cause y los stack
+	 * 
+	 * @param message,            mensaje
+	 * @param cause,              causa
+	 * @param enableSuppression,  supresion
+	 * @param writableStackTrace, stack
+	 */
+	public MarkerException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+	}
+
+}

@@ -1,0 +1,17 @@
+package uo.mp.newsstand.service.parsers;
+
+@SuppressWarnings("serial")
+public class InvalidLineFormatException extends Exception {
+	private int lineNumber;
+	
+	public InvalidLineFormatException(int ln, String message) {
+		super(message);
+		lineNumber = ln;
+	}
+	
+	@Override
+	public String getMessage() {
+		return "InvalidLineFormatException. Linea " + lineNumber + 
+				super.getMessage();
+	}
+}

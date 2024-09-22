@@ -1,0 +1,9 @@
+package uo.mp.newsstand;
+
+class LoadFileTest {
+
+	public LoadFileTest() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

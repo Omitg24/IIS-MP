@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="uo.mp.marker.StudentExam"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.comparators.StudentComparatorExams"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Question"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Choice"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Gap"/>
+    <fullyQualifiedTypeName name="uo.mp.marker.questions.Value"/>
+    <fullyQualifiedTypeName name="org.junit.Before"/>
+    <fullyQualifiedTypeName name="org.junit.Test"/>
+    <fullyQualifiedTypeName name="uo.mp.log.Logger"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.impl.LinkedList"/>
+    <fullyQualifiedTypeName name="uo.mp.sort.Collections"/>
+    <fullyQualifiedTypeName name="luo.mp.lab11.sorting.Collections"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.List"/>
+    <fullyQualifiedTypeName name="uo.mp.file.ZipFileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.file.FileUtil"/>
+    <fullyQualifiedTypeName name="uo.mp.collections.impl.ArrayList"/>
+    <fullyQualifiedTypeName name="uo.mp.file.TxtFileUtil"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+</qualifiedTypeNameHistroy>

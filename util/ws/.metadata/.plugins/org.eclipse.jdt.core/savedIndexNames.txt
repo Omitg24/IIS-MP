@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\Clase\3. Ingeniería Informática de Software\Metodología de la Programación\Practica\util\ws\.metadata\.plugins\org.eclipse.jdt.core
+2396067901.index
+393272115.index

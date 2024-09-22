@@ -1,0 +1,20 @@
+package uo.mp.s3.dome.model;
+
+public class VideoGame {
+//Atributos:
+	/**
+	 * Titulo del videojuego
+	 */
+	private String title;
+
+	private String author;
+
+	private String owner;
+
+	private String comment;
+
+	private int players;
+
+	private String platform;
+
+}

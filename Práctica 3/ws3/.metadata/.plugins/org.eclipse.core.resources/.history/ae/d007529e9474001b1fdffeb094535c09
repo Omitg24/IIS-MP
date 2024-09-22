@@ -1,0 +1,37 @@
+package uo.mp.s3.post.service;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.s3.post.model.Photo;
+import uo.mp.s3.post.model.Message;
+import uo.mp.s3.post.model.Post;
+import uo.mp.util.checks.ArgumentsCheck;
+
+/**
+ * Titulo: Clase TheSocialNetwork
+ * 
+ * @author Omitg
+ * @version 20-02-2021
+ */
+public class TheSocialNetwork {
+//Atributos:
+	/**
+	 * Lista de items
+	 */
+	private ArrayList<Post> posts = new ArrayList<Post>();
+	
+	/**
+	 * Método que añade posts a la red social, el post no puede ser null
+	 * 
+	 * @param post, post a añadir a la red social
+	 */
+	public void addPost(Post post) {
+		ArgumentsCheck.isTrue(post!=null, "El post no cumple las normas de TheSocialNetwork");
+		posts.add(post);
+	}
+	
+	/**
+	 * 
+	 */
+}

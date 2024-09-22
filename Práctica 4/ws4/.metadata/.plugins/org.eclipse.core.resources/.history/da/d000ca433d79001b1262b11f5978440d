@@ -1,0 +1,27 @@
+package uo.mp.s4.dome.model.cd;
+
+import uo.mp.s4.dome.model.Cd;
+
+public class ToStringTest {
+	/**
+	 * Atributos cd
+	 */
+	private Cd cd1, cd2, cd3;
+	
+	/**
+	 * 
+	 */
+	private MediaLibrary lib;
+	
+	/**
+	 * Creación de atributos para su posterior uso
+	 */
+	@Before
+	public void setUp() {
+		lib = new MedaiLibrary();
+		cd1 = new Cd("TIM", "Avicii", 12, 38, 19.99);
+		cd2 = new Cd("The Dark Knight SoundTrack", "Hans Zimmer & James Newton Howard", 
+				28, 146, 39.99); 
+		cd3 = new Cd("Meteora (Bonus Edition)", "Linkin Park", 16, 46, 14.99);
+	}
+}

@@ -1,0 +1,126 @@
+package uo.mp.s4.dome.model.dvd;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.s4.dome.model.Dvd;
+
+/**
+ * Titulo: Clase DvdTest
+ * 
+ * 
+ * @author Omitg
+ * @version 18-02-2021
+ */
+public class DvdTest {
+	/**
+	 * Atributo Dvd
+	 */
+	private Dvd aDvd;
+	
+	/**
+	 * Atributo titulo
+	 */
+	private String theTitle;
+	
+	/**
+	 * Atributo director
+	 */
+	private String theDirector;
+	
+	/**
+	 * Atributo tiempo
+	 */
+	private int theTime;
+	
+	/**
+	 * Atributo basePrice, precio base
+	 */
+	private double basePrice;
+	
+	/**
+	 * Creación de atributos para su uso posterior
+	 */
+	@Before
+	public void setUp() {
+		theTitle = "La guerra de las Galaxias";
+		theDirector = "George Lucas";
+		theTime = 125;
+		basePrice = 9.9;
+	}
+
+	/**
+	 * Pruebas del constructor con parámetros de la clase Cd:
+	 * Pruebas de funcionalidad:
+	 * 1- Parámetros validos -> Se crea el objeto
+	 * 
+	 * Pruebas de robustez:
+	 * 2- Titulo invalido -> Se lanza la excepción
+	 * 3- Director invalido -> Se lanza la excepción
+	 * 4- Tiempo invalido -> Se lanza la excepción
+	 * 5- Precio invalido -> Se lanza la excepción
+	 */
+
+//Pruebas de funcionalidad:
+	/**
+	 * GIVEN: WHEN: Se crea con parámetros válidos THEN: se crea y los valores se
+	 * asignan a los atributos
+	 */
+	@Test
+	public void validParams() {
+		aDvd = new Dvd(theTitle, theDirector, theTime, basePrice);
+
+		assertEquals(theTitle, aDvd.getTitle());
+		assertEquals(theDirector, aDvd.getDirector());
+		assertEquals(theTime, aDvd.getPlayingTime());
+		assertTrue(aDvd.getOwn());
+		assertEquals("No comment", aDvd.getComment());
+	}
+
+//Pruebas de robustez:
+		/**
+		 * 2- Titulo invalido -> Se lanza la excepción
+		 * GIVEN
+		 * WHEN Se crea con parámetro titulo null 
+		 * THEN Se lanza la excepción
+		 */
+		@Test(expected = IllegalArgumentException.class)
+		public void testConstructorInvalidTittle() {
+			new Dvd(null, theDirector, theTime, basePrice);
+		}
+
+		/**
+		 * 3- Director invalido -> Se lanza la excepción
+		 * GIVEN
+		 * WHEN Se crea con parámetro artista null 
+		 * THEN Se lanza la excepción
+		 */
+		@Test(expected = IllegalArgumentException.class)
+		public void testConstructorInvalidArtis() {
+			new Dvd(theTitle, null, theTime, basePrice);
+		}
+
+		/**
+		 * 4- Tiempo invalido -> Se lanza la excepción
+		 * GIVEN
+		 * WHEN Se crea con parámetro tiempo menor a 0 
+		 * THEN Se lanza la excepción
+		 */
+		@Test(expected = IllegalArgumentException.class)
+		public void testConstructorInvalidTime() {
+			new Dvd(theTitle, theDirector, -10, basePrice);
+		}
+		
+		/**
+		 * 5- Precio invalido -> Se lanza la excepción
+		 * GIVEN
+		 * WHEN Se crea con parámetro precio menor a 0 
+		 * THEN Se lanza la excepción
+		 */
+		@Test(expected = IllegalArgumentException.class)
+		public void testConstructorInvalidPrice() {
+			new Dvd(theTitle, theDirector, theTime, -10);
+		}
+}	

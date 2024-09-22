@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;matrix2&apos; from expression &apos;matrix&apos;&#x0D;&#x0A;- Original project: &apos;omar_teixeira_gonalez_session01_game&apos;&#x0D;&#x0A;- Variable name: &apos;matrix2&apos;&#x0D;&#x0A;- Destination method: &apos;uo.mp.s1.game.model.Game2048.getBoard()&apos;&#x0D;&#x0A;- Variable expression: &apos;matrix&apos;" description="Extract local variable &apos;matrix2&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src&lt;uo.mp.s1.game.model{Game2048.java" name="matrix2" replace="false" selection="2059 6" stamp="1612728310411" varType="false" version="1.0"/>
+</session>

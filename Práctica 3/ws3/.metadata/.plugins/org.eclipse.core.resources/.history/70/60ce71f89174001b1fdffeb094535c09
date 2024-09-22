@@ -1,0 +1,109 @@
+package uo.mp.s3.post.model;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+
+import uo.mp.util.checks.ArgumentsCheck;
+
+public class Post {
+//Atributos:
+	/**
+	 * Atributo usuario, usuario que publica la foto
+	 */
+	private String user;
+	
+	/**
+	 * Atributo likes, me gusta de la foto
+	 */
+	private int likes;
+	
+	/**
+	 * Atributo comments, lista de comentarios
+	 */
+	private ArrayList<String> comments;
+	
+	/**
+	 * Constructor sin parámetros de la clase Post, crea la superclase
+	 */
+	public Post() {
+		super();
+	}
+	
+	/**
+	 * Constructor con parámetro de la clase Post, crea la superclase
+	 * 
+	 * @param user, usuario que publicó la foto o el mensaje
+	 */
+	public Post(String user) {
+		super();
+		ArgumentsCheck.isTrue(user!=null && !user.trim().isEmpty(), "El usuario no respeta los requisitos");
+		setUser(user);
+		setLikes(0);
+		setComments(new ArrayList<String>(0));
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo user
+	 * 
+	 * @return user, usuario que publicó la foto o el mensaje
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo user
+	 * 
+	 * @param user, usuario que publicó la foto o el mensaje, de tipo String
+	 */
+	protected void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo likes
+	 * 
+	 * @return likes, likes de la foto o el mensaje
+	 */
+	public int getLikes() {
+		return likes;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo likes
+	 * 
+	 * @param likes, likes de la foto o el mensaje, de tipo int
+	 */
+	protected void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	/**
+	 * Método que devuelve una lista con los comentarios
+	 * 
+	 * @return comments, lista de los comentarios de la foto o el mensaje
+	 */
+	public ArrayList<String> getComments() {
+		return comments;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo comments
+	 * 
+	 * @param comments, lista de los comentarios de la foto o el mensaje, de tipo ArrayList<String>
+	 */
+	protected void setComments(ArrayList<String> comments) {
+		if (comments!=null) {
+			this.comments = comments;
+		}
+	}
+	
+	/**
+	 * Método que imprime el post introducido
+	 * 
+	 * @param out, lugar donde se imprimira el post, de tipo PrintStream
+	 */
+	public void print(PrintStream out) {
+		// Vacío (magia del polimorfismo)
+	}
+}

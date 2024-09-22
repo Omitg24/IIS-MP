@@ -1,0 +1,67 @@
+package uo.mp.s3.post.ui;
+
+import uo.mp.s3.post.model.Message;
+import uo.mp.s3.post.model.Photo;
+import uo.mp.s3.post.service.TheSocialNetwork;
+
+/**
+ * Titulo: Clase Application
+ * 
+ * Descripción: Clase que lanza el programa mediante lo creado en .model y
+ * .service
+ * 
+ * @author Omitg
+ * @version 20-02-2021
+ */
+public class Application {
+
+	/**
+	 * Método que lanza el programa mediante lo creado en .model y .service
+	 */
+	public static void run() {
+		//Creación de los objetos
+		TheSocialNetwork network = new TheSocialNetwork();
+		Message msg1 = new Message("Omitg","Bienvenido a la Red Social");
+		Message msg2 = new Message("ElPlayerHD","Aqui verás ejemplos de lo que es posible");
+		Message msg3 = new Message("DaneonX","Y aun queda mucho más por venir");
+		Message msg4 = new Message("Omitg", "Atento a las novedades que se vienen!");
+		Message msg5 = new Message("Diana1806","Esperamos satisfacer vuestras peticiones");
+		Photo pic1 =  new Photo ("PeacefulGoon39","AdminFile");
+		Photo pic2 = new Photo ("Omitg", "CreatorFile");
+		Photo pic3 = new Photo ("ElPlayerHD", "PartnerFile");
+		Photo pic4 = new Photo ("DaneonX", "PartnerFile");
+		Photo pic5 = new Photo ("Sky00","AdminFile");
+		Photo pic6 = new Photo ("Diana1806","ManagerFile");
+		
+		//Se añaden a la red social (lista):
+		network.addPost(msg1);
+		network.addPost(msg2);
+		network.addPost(msg3);
+		network.addPost(msg4);
+		network.addPost(msg5);
+		network.addPost(pic1);
+		network.addPost(pic2);
+		network.addPost(pic3);
+		network.addPost(pic4);
+		network.addPost(pic5);
+		network.addPost(pic6);
+		
+		//Dar formato a la red social
+		System.out.println("                         The Social Network:                         ");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+		
+		//Llamada a los métodos de TheSocialNetwork
+		network.print(System.out);
+		System.out.println("\n--------------------------------------------------------------------\n");
+		
+		System.out.println("Posts by: " + msg1.getUser());
+		int count=0;
+		for (int i=0; i<network.findPostsByUser(msg1.getUser()).size();i++) {
+			System.out.print("\t");
+			network.findPostsByUser(msg1.getUser()).get(i).print(System.out);
+			count++;
+		}
+		System.out.println("The total number of posts by: " + msg1.getUser() + " are: " + count);
+		
+	}
+}

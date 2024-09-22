@@ -1,0 +1,97 @@
+package uo.mp.s6.greenhouse.humidity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class HumidityController {
+	public static final double MAX_HUMIDITY=70, MIN_HUMIDITY=20;
+	
+	public static final int OFF = 1, LOW = 2, MEDIUM = 3, HIGH = 4;
+	
+	private List<HumiditySensor> sensors = new ArrayList<>();
+	
+	private int state;
+	
+	public void add(HumiditySensor sensor) {
+		this.sensors.add(sensor);
+	}
+	
+	public void monitor() {
+		if (MAX_HUMIDITY>= getAverageHumidity() && MIN_HUMIDITY<=getAverageHumidity()) {
+			doNothing();			
+		} else if (MAX_HUMIDITY*0.2<getAverageHumidity()) {
+			adjustToMin();
+		} else if (MIN_HUMIDITY*0.2>getAverageHumidity()) {
+			adjustToMax();
+		} else if (MAX_HUMIDITY<getAverageHumidity()){
+			decreaseState();
+		} else if (MIN_HUMIDITY>getAverageHumidity()) {
+			increaseState();
+		}
+	}
+	
+	private void adjustToMin(){
+		setState(OFF);
+		System.out.println("Sistema de riego: OFF");
+	}
+	
+	private void adjustToMax() {
+		setState(HIGH);
+		System.out.println("Sistema de riego: HIGH");
+	}
+	
+	private void decreaseState() {
+		if (getState()==HIGH) {
+			setState(MEDIUM);
+			System.out.println("Sistema de riego: MEDIUM");
+		} else if (getState()==MEDIUM) {
+			setState(LOW);
+			System.out.println("Sistema de riego: LOW");
+		} else if (getState()==LOW) {
+			setState(OFF);
+			System.out.println("Sistema de riego: OFF");
+		} else if(getState()==OFF) {
+			setState(OFF);
+			System.out.println("Sistema de riego: OFF");
+		}
+	}
+	
+	private void increaseState() {
+		if (getState()==OFF) {
+			setState(LOW);
+			System.out.println("Sistema de riego: LOW");
+		} else if (getState()==LOW) {
+			setState(MEDIUM);
+			System.out.println("Sistema de riego: MEDIUM");
+		} else if (getState()==MEDIUM) {
+			setState(HIGH);
+			System.out.println("Sistema de riego: HIGH");
+		} else if(getState()==HIGH) {
+			setState(HIGH);
+			System.out.println("Sistema de riego: HIGH");
+		}
+	}
+	
+	private void doNothing() {
+		System.out.println("La humedad " + getAverageHumidity() + "es normal");		
+	}
+
+	private double getAverageHumidity() {
+		double addition = 0;
+		for(HumiditySensor sensor : sensors) {
+			addition += sensor.getHumidity();
+		}
+		return addition / sensors.size();
+	}
+	
+	private void setState(int state) {
+		if (state==OFF || state == LOW || state == MEDIUM || state == HIGH) {
+			this.state=state;
+		}
+	}
+	
+	public int getState() {
+		return state;
+	}
+}

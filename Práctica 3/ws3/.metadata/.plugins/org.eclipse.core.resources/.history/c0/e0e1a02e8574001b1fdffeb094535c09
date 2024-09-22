@@ -1,0 +1,116 @@
+/**
+ * 
+ */
+package uo.mp.s3.post.model;
+
+import java.util.ArrayList;
+
+/**
+ * @author Omitg
+ *
+ */
+public class Message {
+//Atributos:
+	/**
+	 * Atributo usuario
+	 */
+	private String user;
+	
+	/**
+	 * Atributo mensaje
+	 */
+	private String msg;
+	
+	/**
+	 * Atributo likes
+	 */
+	private int likes;
+	
+	/**
+	 * Atributo comments, lista de comentarios
+	 */
+	private ArrayList<String> comments = new ArrayList<String>();
+	
+	/**
+	 * Constructor con parámetros de la clase Message
+	 * 
+	 * @param user, usuario, de tipo String
+	 * @param msg, mensaje, de tipo String
+	 */
+	public Message(String user, String msg, int likes, ArrayList<String> comments) {
+		setUser(user);
+		setMessage(msg);
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo user
+	 * 
+	 * @return user, usuario que publicó el mensaje
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo user
+	 * 
+	 * @param user, usuario que publicó el mensaje, de tipo String
+	 */
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	/**
+	 * Método que devuelve el valor del atributo msg
+	 * 
+	 * @return msg, mensaje que publicó el usuario
+	 */
+	public String getMessage() {
+		return msg;
+	}
+	
+	/**
+	 * Método que modifica el valor del atributo msg
+	 * 
+	 * @param msg, mensaje que publicó el usuario, de tipo String
+	 */
+	public void setMessage(String msg) {
+		this.msg = msg;
+	}
+	
+	/**
+	 * Método que devuelve el valor del atributo likes
+	 * 
+	 * @return likes
+	 */
+	public int getLikes() {
+		return likes;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo likes
+	 * 
+	 * @param likes, likes del mensaje, de tipo int
+	 */
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+
+	/**
+	 * Método que devuelve una lista con los comentarios
+	 * 
+	 * @return comments, lista de comentarios
+	 */
+	public ArrayList<String> getComments() {
+		return comments;
+	}
+
+	/**
+	 * Método que modifica el valor del atributo comments
+	 * 
+	 * @param comments, lista de los comentarios del mensaje, de tipo ArrayList<String>
+	 */
+	public void setComments(ArrayList<String> comments) {
+		this.comments = comments;
+	}
+}

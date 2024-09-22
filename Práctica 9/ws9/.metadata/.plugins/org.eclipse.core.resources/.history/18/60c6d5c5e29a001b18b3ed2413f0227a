@@ -1,0 +1,49 @@
+package uo.mp.newsstand;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import uo.mp.newsstand.domain.Magazine;
+import uo.mp.newsstand.domain.Newspaper;
+import uo.mp.newsstand.domain.Order;
+import uo.mp.newsstand.service.Newsstand;
+
+public class CreateOrdersTest {
+	
+	private Newsstand ns;
+	
+	@Before
+	public void setUp() {
+		ns = new Newsstand();
+	}
+	
+	@Test
+	public void newspaperTest() {
+		int SALES =  15;
+		int STOCK = Magazine.MIN_STOCK+1;
+		ns.addPublication(new Newspaper("Hola", STOCK, SALES));
+		Order expected = new Order("Hola", SALES);
+		
+		ns.createOrders();
+		
+		Order order = ns.getOrders().get(0);
+		assertTrue(expected.toString().equals(order.toString()));
+	}	
+	
+	@Test
+	public void magazineTest() {
+		int SALES =  15;
+		int STOCK = Magazine.MIN_STOCK+1;
+		int PERIOD = Magazine.WEEKLY;
+		ns.addPublication(new Magazine("Hola", STOCK, SALES, PERIOD));
+		Order expected = new Order("Hola", SALES);
+		
+		ns.createOrders();
+		
+		Order order = ns.getOrders().get(0);
+		assertTrue(expected.toString().equals(order.toString()));
+	}	
+}

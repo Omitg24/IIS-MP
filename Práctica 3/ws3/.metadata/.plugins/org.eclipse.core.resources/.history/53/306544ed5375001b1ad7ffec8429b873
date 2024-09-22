@@ -1,0 +1,11 @@
+package uo.mp.s3.post.model.message;
+
+/**
+ * Titulo: Clase ToStringTest
+ * 
+ * @author Omitg
+ * @version 20-02-2021
+ */
+public class ToStringTest {
+
+}

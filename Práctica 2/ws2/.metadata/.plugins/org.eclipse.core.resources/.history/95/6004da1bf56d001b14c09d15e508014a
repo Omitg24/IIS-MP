@@ -1,0 +1,43 @@
+/**
+ * 
+ */
+package uo.mp.s2.analyzer.wordanalyzer;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import uo.mp.s2.analyzer.model.WordAnalyzer;
+
+/**
+ * @author Omitg
+ *
+ */
+public class FirstRepeatedCharacterTest {
+
+	/*
+	 * Pruebas para el método firstRepeatedCharacter de la clae Word Analyzer:
+	 * 1- Palabra sin caracteres repetidos -> Devuelve 0.
+	 * 2- Palabra con caracteres repetidos consecutivos-> Devuelve el caracter
+	 * 3- Palabra con caracteres repetidos no consecutivos -> Devolver 0
+	 * 4- Palabra varios caracteres repetidos
+	 * 5- Palabra con caracteres repetidos consecutivos mas de 2
+	 * 6- Palabra con caracteres repetidos al comienzo
+	 * 7- Palabra con caracteres repetidos al final
+	 * 8- Palabra con un solo caracter. Devolver 0
+	 */
+	
+	/**
+	 * 8- Palabra con un solo caracter. Devolver 0
+	 * GIVEN Analizador recibe un unico caracter
+	 * WHEN se llama al metodo
+	 * THEN devuelve 0
+	 */
+	 @Test
+	 public void testFirstRepeatedCharacterOne() {
+		 WordAnalyzer analyzer = new WordAnalyzer("a");
+		 int r =analyzer.firstRepeatedCharacter();
+		 assertEquals(0,r);
+	}
+
+}

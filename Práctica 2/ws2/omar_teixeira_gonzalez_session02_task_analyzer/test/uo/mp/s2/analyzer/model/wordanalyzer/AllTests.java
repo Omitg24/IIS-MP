@@ -1,0 +1,21 @@
+package uo.mp.s2.analyzer.model.wordanalyzer;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+/**
+ * <p>
+ * Título: Clase AllTests
+ * </p>
+ * 
+ * @author Omar Teixeira González
+ * @version 12/02/2021
+ */
+
+@RunWith(Suite.class)
+@SuiteClasses({ FirstRepeatedCharacterTest.class, WordAnalyzerTest.class, FirstMultipleCharacterTest.class, 
+	CountGroupsOfRepeatedCharacters.class})
+public class AllTests {
+
+}

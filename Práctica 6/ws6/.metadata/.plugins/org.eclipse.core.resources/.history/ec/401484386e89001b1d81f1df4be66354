@@ -1,0 +1,50 @@
+package uo.mp.s6.greenhouse.temperature;
+
+import uo.mp.s6.greenhouse.scanner.Checkable;
+
+public class AutomaticDoor implements Doorable, Checkable{
+
+	private boolean opened = false;
+	private boolean closed = false;
+	private int id;
+	
+	public AutomaticDoor(int id) {
+		this.id = id;
+	}
+
+	public boolean isOpened() {
+		return this.opened;
+	}
+	
+	public boolean isClosed() {
+		return this.closed;
+	}
+	
+	public void open(){
+		if ( ! opened) {
+			showOpeningMessage();
+			opened = true;
+		}
+	}
+
+	public void close(){
+		if ( opened) {
+			showClosingMessage();
+			opened = false;
+		}
+	}
+
+	protected void showOpeningMessage() {
+		System.out.println ("  La puerta automatica " + id + " se esta abriendo");
+	}
+	
+	protected void showClosingMessage() {
+		System.out.println ("  La puerta automatica " + id + " se esta cerando");
+	}
+
+	@Override
+	public boolean check() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

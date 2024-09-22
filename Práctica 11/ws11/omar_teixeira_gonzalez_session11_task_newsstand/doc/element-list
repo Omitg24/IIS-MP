@@ -1,0 +1,14 @@
+uo.mp
+uo.mp.exception
+uo.mp.newsstand
+uo.mp.newsstand.domain
+uo.mp.newsstand.domain.comparators
+uo.mp.newsstand.service
+uo.mp.newsstand.service.exception
+uo.mp.newsstand.service.parsers
+uo.mp.newsstand.service.serializers
+uo.mp.newsstand.ui
+uo.mp.newsstand.ui.console
+uo.mp.publicationparser
+uo.mp.util.file
+uo.mp.util.log

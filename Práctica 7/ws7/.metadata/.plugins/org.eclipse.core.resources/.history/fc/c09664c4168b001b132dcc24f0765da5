@@ -1,0 +1,286 @@
+package uo.mp.collections.impl;
+
+import java.util.Arrays;
+
+import uo.mp.check.ArgumentChecks;
+import uo.mp.collections.List;
+/**
+ * Clase que implementa un arrayList
+ * @author Ana Fernandez Ostio, UO275780
+ *
+ */
+public class ArrayList implements List {
+	
+	/**
+	 * Contante que indica el tamaño por defecto 
+	 * del array
+	 */
+	public static final int INITIAL_CAPACITY = 20;
+	
+	/**
+	 * Atributo que contiene los diferentes elemtnos 
+	 */
+	private Object[] elements;
+	
+	/**
+	 * Atributo que indica el numero de elementos que 
+	 * hay en el array
+	 */
+	private int numberOfElements;
+	
+	/**
+	 * Contructor que inicializa el array
+	 * @param capacity la capacidad que se quiere tener, 
+	 * si es menor que 0 lanzara excepcion
+	 */
+	public ArrayList(int capacity) {
+		ArgumentChecks.isTrue(capacity > 0);
+		elements = new Object[capacity];
+		numberOfElements = 0;
+	}
+	
+	/**
+	 * Constructor que crea un array con un tamaño 
+	 * por defectos
+	 */
+	 public ArrayList() {
+		this(INITIAL_CAPACITY);
+	}
+
+	 /**
+	  * Método que retorna el numero de elementos del array
+	  * @return numberOfElements, el numero de elementos 
+	  * que hay en el array
+	  */
+	@Override
+	public int size() {
+		return numberOfElements;
+	}
+
+	/**
+	 * Método que comrpueba si la lista esta vacia, 
+	 * true si esta vacia, false en caso contrario
+	 * @return true si esta vacia, false en caso contrario
+	 */
+	@Override
+	public boolean isEmpty() {
+		return this.size() == 0;
+	}
+
+	/**
+	 * Método que comprueb si el elemeto que se le pasa por paremtros 
+	 * esta en la lista, devuelve false si no lo esta
+	 * @param o el objeto a busca en la lista
+	 * @return true si lo esta, false en caso contrario
+	 */
+	@Override
+	public boolean contains(Object o) {
+		//ArgumentChecks.isTrue(o != null);
+		return search(o) != -1;
+	}
+
+	/**
+	 * Método que busca el elemento en la coleccion
+	 * @param o el objeto a buscar
+	 * @return la posicion donde se encuentra
+	 */
+	private int search(Object o) {
+		for(int i = 0; i < size(); i++)
+			if(elements[i].equals(o))
+				return i;
+		return -1;
+	}
+
+	/**
+	 * Método que dirve para añadir un elementos a lista
+	 * @param element el elemento a añadir
+	 * @return true si si se pudo añadir, false en caso contrario
+	 */
+	@Override
+	public boolean add(Object element) {
+		ArgumentChecks.isTrue(element != null);
+		if(memoryFull())
+			moreMemory(size() + 1);
+		elements[numberOfElements] = element;
+		numberOfElements++;
+		return true;
+	}
+
+	/**
+	 * Método que hace que la memoria este mas llena
+	 * @param numElem el numero de elemntos a añadir
+	 */
+	private void moreMemory(int numElem) {
+		if (numElem > elements.length) {
+			Object[] aux = new Object[Math.max( numElem, 2*elements.length)];
+			System.arraycopy(elements, 0, aux, 0, elements.length);
+			elements=aux;
+			}
+	}
+	
+	/**
+	 * Métdo que comprueba si la memoria esta llena
+	 * @return true si lo esta, false en caso contrario
+	 */
+	private boolean memoryFull() {
+		return this.size() == elements.length;
+	}
+
+	/**
+	 * Método que borra el objeto que se le pasa como parametro
+	 * @param o el objeto a borrar
+	 * @return true si se borro, false en caso contrario
+	 */
+	@Override
+	public boolean remove(Object o) {
+		ArgumentChecks.isTrue(o != null);
+		int pos = this.indexOf(o);
+		if(pos != -1) {
+			this.remove(pos);
+			return true;	
+		}
+		return false;
+	}
+
+	/**
+	 * Método que limpia la lista que ya existe
+	 */
+	@Override
+	public void clear() {
+		elements = new Object[size()];
+		numberOfElements = 0;
+	}
+
+	/**
+	 * Método que retorna el objeto q esta en la posicion que se le pasa como
+	 * paramtro
+	 * @param index la posicion del elemento a busca
+	 * @return el elemento buscado o una excepcion
+	 */
+	@Override
+	public Object get(int index) {
+		ArgumentChecks.isTrueParam(index >= 0 && index < this.size());
+		ArgumentChecks.isTrueParam(!isEmpty());
+		return elements[index];
+	}
+
+	/**
+	 * Método que reemplza el elemento por la posicionq ue 
+	 * se le pasa como parametro
+	 * @param index donde se quiere poner
+	 * @param element, el elemnto a colocar
+	 * @return el elemento
+	 */
+	@Override
+	public Object set(int index, Object element) {
+		
+	}
+
+	/**
+	 * Método que añade el elemnto que se le pasa como parametro en la posicion
+	 * que se desee
+	 * @param index donde se quiere insertar, si es menor que 0 o mayor que 
+	 * el tamaño, lanzara excepcion
+	 * @param element el elemento a añadir, si es null, lanza excepcion
+	 */
+	@Override
+	public void add(int index, Object element) {
+		ArgumentChecks.isTrue(element != null);
+		ArgumentChecks.isTrueParam(index >= 0 && index <= this.size());
+		if(memoryFull())
+			moreMemory(this.size() + 1);
+		
+		for(int i = size(); i > index; i--)
+			elements[i] = elements[i-1];
+		
+		elements[index] = element;
+		numberOfElements++;
+	}
+
+	/**
+	 * Método que elimina el elemento que se encuentra en la posicion
+	 * que se le pasa como parametro
+	 * @param index, la posicion donde se encuentra
+	 */
+	@Override
+	public Object remove(int index) {
+		ArgumentChecks.isTrueParam(index >= 0 && index < this.size());
+		Object aux = elements[index];
+		for(int i = index; i < size() -1;  i++)
+			elements[i] = elements[i+1];
+		numberOfElements--;
+		elements[size()] = null;
+		return aux;
+	}
+
+	/**
+	 * Métoodo que busca el objeto en la lista
+	 * si no lo encuentra devuelve -1
+	 * @param o el objetoa buscar
+	 * @return l aposicion de este o -1;
+	 */
+	@Override
+	public int indexOf(Object o) {
+		//ArgumentChecks.isTrue(o != null);
+		return search(o);
+	}
+	
+	/**
+	 * Método que calcula el hasCode de la lista
+	 * @return un numero que es el hashCode o 1
+	 * int hashCode = 1;
+	 * for (Object e : list)
+	 * 	hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
+	 */
+	@Override
+	public int hashCode() {
+		if(isEmpty())
+			return 1;
+		int hashCode = 1;
+		for (Object e : elements)
+			  hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
+		return hashCode;
+	}
+
+	/**
+	 * Métodoq ue compeuba que los elementos son iguales
+	 * @param obj el objeto a comprobar
+	 * @return true si son igaules, falase en caso contrario
+	 */
+	@Override
+	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+		if(!(obj instanceof List))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ArrayList other = (ArrayList) obj;
+		if (!Arrays.deepEquals(elements, other.elements))
+			return false;
+		if (numberOfElements != other.numberOfElements)
+			return false;
+		return true;
+	}
+
+	/**
+	 * Método qeu hace una cadena con la lista de elementos
+	 * @return cadeba con los lementos de la lista
+	 */
+	public String toString() {
+		String aux = "[";
+		for (int i = 0; i < size(); i++) {
+			if (i != numberOfElements -1) {//si no es el último
+				aux = aux + get(i) + ", ";
+			} else { //si es el último
+				aux = aux + get(i);
+			}
+		}
+		aux = aux + "]";
+		return aux;
+	}
+
+
+}

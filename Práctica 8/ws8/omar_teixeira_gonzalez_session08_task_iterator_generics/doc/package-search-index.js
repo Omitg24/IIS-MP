@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"uo.mp.collections"},{"l":"uo.mp.collections.impl"},{"l":"uo.mp.collections.iterator"},{"l":"uo.mp.collections.setting"},{"l":"uo.mp.collections.testcases"},{"l":"uo.mp.collections.ui"}];updateSearchResults();

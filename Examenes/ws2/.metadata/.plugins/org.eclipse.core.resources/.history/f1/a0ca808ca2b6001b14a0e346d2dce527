@@ -1,0 +1,64 @@
+package uo.mp.transaction.validator.parser;
+
+import uo.mp.checks.ArgumentChecks;
+import uo.mp.collections.List;
+import uo.mp.collections.impl.ArrayList;
+import uo.mp.exceptions.InvalidLineFormatException;
+import uo.mp.log.Logger;
+import uo.mp.transaction.model.Transaction;
+
+public class TransactionParser {
+	private int lineNumber = 1;
+	
+	public List<Transaction> parse(List<String> lines) {
+		ArgumentChecks.isNotNull(lines);
+		List<Transaction> transactions = new ArrayList<>();
+		for (String line : lines) {
+			try {
+				transactions.add(parseLine(line));
+			} catch (InvalidLineFormatException e) {
+					Logger.log("PARSING ERROR en linea " + lineNumber + "; " 
+			+ e.getMessage());
+			}
+			lineNumber++;
+		}
+		return transactions;
+	}
+
+	private Transaction parseLine(String line) throws InvalidLineFormatException {
+		checkIsEmpty(line);
+		String[] parts = line.split(";");
+		String type = parts[0];
+		if (type.equals("cc")) {
+			return parseCreditCard(parts);
+		} else if (type.equals("acc")) {
+			return parseCurrentAccount(parts);			
+		} else {
+			throw new InvalidLineFormatException(lineNumber, "PALABRA CLAVE NO VÁLIDA");
+		}
+	}
+
+	private Transaction parseCurrentAccount(String[] parts) throws InvalidLineFormatException {
+		checkParts(parts, 6);
+		
+		return new CurrentAccountTransaction();
+	}
+	
+
+	private Transaction parseCreditCard(String[] parts) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void checkIsEmpty(String line) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private void checkParts(String[] parts, int i) throws InvalidLineFormatException {
+		if (parts.length != i) {
+			throw new InvalidLineFormatException(lineNumber, " Numero de partes incorrecto");
+		}
+	}
+
+}

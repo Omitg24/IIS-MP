@@ -1,0 +1,11 @@
+package uo.mp.s4.dome.model.item;
+
+public class SetBasePriceTest {
+	
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testSetBasePrice
+}

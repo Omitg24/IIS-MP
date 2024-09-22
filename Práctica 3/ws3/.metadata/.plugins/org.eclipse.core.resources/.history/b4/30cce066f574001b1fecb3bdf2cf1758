@@ -1,0 +1,14 @@
+package uo.mp.s3.post.model.message;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MessageTest1 {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

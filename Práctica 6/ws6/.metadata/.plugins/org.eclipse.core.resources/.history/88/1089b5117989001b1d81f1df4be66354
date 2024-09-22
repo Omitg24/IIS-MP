@@ -1,0 +1,39 @@
+package uo.mp.s6.greenhouse.humidity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class HumidityController {
+	public static final double MAX_HUMIDITY=70, MIN_HUMIDITY=20;
+	
+	public static final int OFF = 1, LOW = 2, MEDIUM = 3, HIGH = 4;
+	
+	private List<HumiditySensor> sensors = new ArrayList<>();
+	
+	private int state;
+	
+	public void add(HumiditySensor sensor) {
+		this.sensors.add(sensor);
+	}
+	
+	public void monitor() {
+		if (MAX_HUMIDITY>= getAverageHumidity() && MIN_HUMIDITY<=getAverageHumidity()) {
+			doNothing();			
+		} else if (MAX_HUMIDITY*0.2<getAverageHumidity()) {
+			
+		}
+	}
+	
+	private void doNothing() {
+		System.out.println("La humedad es normal");		
+	}
+
+	private double getAverageHumidity() {
+		double addition = 0;
+		for(HumiditySensor sensor : sensors) {
+			addition += sensor.getHumidity();
+		}
+		return addition / sensors.size();
+	}
+}

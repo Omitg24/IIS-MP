@@ -1,0 +1,11 @@
+package uo.mp.s2.seatmanager.model.seatmanager;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+
+@RunWith(Suite.class)
+@SuiteClasses({ BookSeatTest.class, FindPassengersByAgeTest.class, SeatManagerTest.class })
+public class AllTests {
+
+}

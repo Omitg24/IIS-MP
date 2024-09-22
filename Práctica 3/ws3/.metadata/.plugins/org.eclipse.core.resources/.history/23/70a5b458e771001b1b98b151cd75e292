@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package uo.mp.s3.dome;
+
+/**
+ * @author Omitg
+ *
+ */
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Application.run();
+	}
+
+}

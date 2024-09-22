@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"uo.mp.battleship.ranking","l":"GameRanking"}];updateSearchResults();
